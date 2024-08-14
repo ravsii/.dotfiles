@@ -7,6 +7,7 @@ local list = {
   "folke/trouble.nvim",
   "nvimdev/dashboard-nvim",
   -- "rcarriga/nvim-notify",
+  "3rd/image.nvim",
 }
 
 -- @returns table[]
