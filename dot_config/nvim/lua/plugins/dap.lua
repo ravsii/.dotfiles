@@ -7,19 +7,11 @@ return {
           elements = {
             {
               id = "scopes",
-              size = 0.7,
+              size = 0.8,
             },
             {
               id = "breakpoints",
-              size = 0.1,
-            },
-            {
-              id = "stacks",
-              size = 0.1,
-            },
-            {
-              id = "watches",
-              size = 0.1,
+              size = 0.2,
             },
           },
           position = "left",
@@ -29,11 +21,7 @@ return {
           elements = {
             {
               id = "repl",
-              size = 0.9,
-            },
-            {
-              id = "console",
-              size = 0.1,
+              size = 1,
             },
           },
           position = "bottom",
