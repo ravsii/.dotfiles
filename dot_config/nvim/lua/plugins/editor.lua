@@ -30,20 +30,6 @@ return {
       preview_empty_name = true,
     },
   },
-  -- {
-  --   "telescope.nvim",
-  --   keys = {
-  --     {
-  --       "<leader>sn",
-  --       function()
-  --         -- require("telescope").load_extension("notify")
-  --         require("telescope").extensions.notify.notify()
-  --       end,
-  --       desc = "Goto Notify List",
-  --     },
-  --     { "<leader><space>", LazyVim.pick("auto"), desc = "Find Files" },
-  --   },
-  -- },
   {
     "tummetott/unimpaired.nvim",
     -- I randomly found this behaviour in Helix, and it's really life-changing
