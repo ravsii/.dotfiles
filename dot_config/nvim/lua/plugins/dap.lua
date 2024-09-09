@@ -6,6 +6,16 @@ return {
         {
           elements = {
             {
+              id = "repl",
+              size = 1,
+            },
+          },
+          position = "bottom",
+          size = 20,
+        },
+        {
+          elements = {
+            {
               id = "scopes",
               size = 0.8,
             },
@@ -15,18 +25,16 @@ return {
             },
           },
           position = "left",
-          size = 50,
+          size = 40,
         },
-        {
-          elements = {
-            {
-              id = "repl",
-              size = 1,
-            },
-          },
-          position = "bottom",
-          size = 10,
-        },
+      },
+      mappings = {
+        edit = "e",
+        expand = { "<CR>", "<LeftMouse>" },
+        open = "o",
+        remove = "d",
+        repl = "r",
+        toggle = "t",
       },
     },
   },
