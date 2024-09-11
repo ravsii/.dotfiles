@@ -17,11 +17,15 @@ return {
           elements = {
             {
               id = "scopes",
-              size = 0.8,
+              size = 0.7,
             },
             {
               id = "breakpoints",
               size = 0.2,
+            },
+            {
+              id = "stacks",
+              size = 0.1,
             },
           },
           position = "left",
@@ -30,7 +34,7 @@ return {
       },
       mappings = {
         edit = "e",
-        expand = { "<CR>", "<LeftMouse>" },
+        expand = { "<CR>", "<2-LeftMouse>" },
         open = "o",
         remove = "d",
         repl = "r",
