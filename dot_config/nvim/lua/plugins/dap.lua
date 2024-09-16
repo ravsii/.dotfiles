@@ -6,16 +6,6 @@ return {
         {
           elements = {
             {
-              id = "repl",
-              size = 1,
-            },
-          },
-          position = "bottom",
-          size = 20,
-        },
-        {
-          elements = {
-            {
               id = "scopes",
               size = 0.7,
             },
@@ -30,6 +20,16 @@ return {
           },
           position = "left",
           size = 40,
+        },
+        {
+          elements = {
+            {
+              id = "repl",
+              size = 1,
+            },
+          },
+          position = "bottom",
+          size = 20,
         },
       },
       mappings = {
