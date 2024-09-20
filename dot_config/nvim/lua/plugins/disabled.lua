@@ -1,13 +1,14 @@
 local list = {
+  "3rd/image.nvim",
   "catppuccin/nvim",
   "folke/flash.nvim",
   "folke/noice.nvim",
   "folke/persistence.nvim",
   "folke/trouble.nvim",
-  "nvimdev/dashboard-nvim",
   "lewis6991/gitsigns.nvim",
+  "nvimdev/dashboard-nvim",
   -- "rcarriga/nvim-notify",
-  "3rd/image.nvim",
+  "theHamsta/nvim-dap-virtual-text",
 }
 
 -- @returns table[]
