@@ -6,14 +6,16 @@ map kitty_mod+t     launch --cwd=current --type=tab
 map cmd+t           launch --cwd=current --type=tab
 map kitty_mod+,     set_tab_title
 
-font_family      CaskaydiaCove Nerd Font Propo Regular
-bold_font        CaskaydiaCove Nerd Font Propo Bold
-italic_font      CaskaydiaCove Nerd Font Propo Semibold Italic
-bold_italic_font CaskaydiaCove Nerd Font Propo Bold Italic
-font_size 22
+# BEGIN_KITTY_FONTS
+font_family      family="BlexMono Nerd Font Mono Propo"
+bold_font        auto
+italic_font      auto
+bold_italic_font auto
+# END_KITTY_FONTS
+
+font_size 18.0
 disable_ligatures always
 modify_font cell_width 90%
-
 box_drawing_scale 0.001, 1, 1.5, 2
 cursor_shape block
 
@@ -28,37 +30,117 @@ underline_hyperlinks hover
 copy_on_select yes
 strip_trailing_spaces always
 
+# select_by_word_characters @-./_~?&=%+#
+# select_by_word_characters_forward
+# click_interval -1.0
+# focus_follows_mouse no
+# pointer_shape_when_grabbed arrow
+# default_pointer_shape beam
+# pointer_shape_when_dragging beam
+
+#: Window layout {{{
+
 # remember_window_size  yes
 # initial_window_width  640
 # initial_window_height 400
 
+#: If enabled, the OS Window size will be remembered so that new
+#: instances of kitty will have the same size as the previous
+#: instance. If disabled, the OS Window will initially have size
+#: configured by initial_window_width/height, in pixels. You can use a
+#: suffix of "c" on the width/height values to have them interpreted
+#: as number of cells instead of pixels.
+
 # enabled_layouts *
+
+#: The enabled window layouts. A comma separated list of layout names.
+#: The special value all means all layouts. The first listed layout
+#: will be used as the startup layout. Default configuration is all
+#: layouts in alphabetical order. For a list of available layouts, see
+#: the layouts <https://sw.kovidgoyal.net/kitty/overview/#layouts>.
 
 # window_resize_step_cells 2
 # window_resize_step_lines 2
 
+#: The step size (in units of cell width/cell height) to use when
+#: resizing kitty windows in a layout with the shortcut
+#: start_resizing_window. The cells value is used for horizontal
+#: resizing, and the lines value is used for vertical resizing.
 
 # window_border_width 0.5pt
 
+#: The width of window borders. Can be either in pixels (px) or pts
+#: (pt). Values in pts will be rounded to the nearest number of pixels
+#: based on screen resolution. If not specified, the unit is assumed
+#: to be pts. Note that borders are displayed only when more than one
+#: window is visible. They are meant to separate multiple windows.
 
-draw_minimal_borders yes
-window_margin_width 0
-window_padding_width 0
-single_window_margin_width 0
-single_window_padding_width 0
+# draw_minimal_borders yes
+
+#: Draw only the minimum borders needed. This means that only the
+#: borders that separate the window from a neighbor are drawn. Note
+#: that setting a non-zero window_margin_width overrides this and
+#: causes all borders to be drawn.
+
+# window_margin_width 0
+
+#: The window margin (in pts) (blank area outside the border). A
+#: single value sets all four sides. Two values set the vertical and
+#: horizontal sides. Three values set top, horizontal and bottom. Four
+#: values set top, right, bottom and left.
+
+# single_window_margin_width -1
+
+#: The window margin to use when only a single window is visible (in
+#: pts). Negative values will cause the value of window_margin_width
+#: to be used instead. A single value sets all four sides. Two values
+#: set the vertical and horizontal sides. Three values set top,
+#: horizontal and bottom. Four values set top, right, bottom and left.
+
+# window_padding_width 0
+
+#: The window padding (in pts) (blank area between the text and the
+#: window border). A single value sets all four sides. Two values set
+#: the vertical and horizontal sides. Three values set top, horizontal
+#: and bottom. Four values set top, right, bottom and left.
+
+# single_window_padding_width -1
+
+#: The window padding to use when only a single window is visible (in
+#: pts). Negative values will cause the value of window_padding_width
+#: to be used instead. A single value sets all four sides. Two values
+#: set the vertical and horizontal sides. Three values set top,
+#: horizontal and bottom. Four values set top, right, bottom and left.
 
 # placement_strategy center
 
-active_border_color #00ff00
-inactive_border_color #cccccc
-bell_border_color #ff5a00
+#: When the window size is not an exact multiple of the cell size, the
+#: cell area of the terminal window will have some extra padding on
+#: the sides. You can control how that padding is distributed with
+#: this option. Using a value of center means the cell area will be
+#: placed centrally. A value of top-left means the padding will be
+#: only at the bottom and right edges.
 
-inactive_text_alpha 0.8
+# active_border_color #00ff00
+
+#: The color for the border of the active window. Set this to none to
+#: not draw borders around the active window.
+
+# inactive_border_color #cccccc
+
+#: The color for the border of inactive windows.
+
+# bell_border_color #ff5a00
+
+#: The color for the border of inactive windows in which a bell has
+#: occurred.
+
+# inactive_text_alpha 1.0
 
 #: Fade the text in inactive windows by the specified amount (a number
 #: between zero and one, with zero being fully faded).
 
-hide_window_decorations no
+# hide_window_decorations no
 
 #: Hide the window decorations (title-bar and window borders) with
 #: yes. On macOS, titlebar-only and titlebar-and-corners can be used
@@ -902,7 +984,7 @@ macos_option_as_alt yes
 #: mouse cursor invisible on dual GPU machines. Changing this option
 #: by reloading the config is not supported.
 
-macos_colorspace displayp3
+# macos_colorspace displayp3
 
 #: The colorspace in which to interpret terminal colors. The default
 #: of srgb will cause colors to match those seen in web browsers. The
@@ -958,7 +1040,7 @@ macos_colorspace displayp3
 #: The full list of actions that can be mapped to key presses is
 #: available here <https://sw.kovidgoyal.net/kitty/actions/>.
 
-# kitty_mod ctrl+shift
+kitty_mod ctrl+shift
 
 #: Special modifier key alias for default shortcuts. You can change
 #: the value of this option to alter all default shortcuts that use
@@ -1470,4 +1552,6 @@ macos_colorspace displayp3
 #: Toggle maximized
 
 # map kitty_mod+f10 toggle_maximized
+
+
 
