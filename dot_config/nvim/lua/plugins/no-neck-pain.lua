@@ -5,8 +5,8 @@ return {
       version = "*",
       opts = {
         debug = false,
-        width = 100,
-        minSideBufferWidth = 10,
+        width = 90,
+        -- minSideBufferWidth = 10,
         disableOnLastBuffer = false,
         -- When `true`, disabling the plugin closes every other windows except the initially focused one.
         --- @type boolean
