@@ -2,7 +2,9 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     opts = function(_, opts)
-      --  opts = {
+      opts = {}
+
+      return opts
       --   options = {
       --     theme = "auto",
       --     globalstatus = vim.o.laststatus == 3,

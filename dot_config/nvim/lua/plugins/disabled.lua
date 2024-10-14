@@ -4,7 +4,7 @@ local list = {
   "folke/flash.nvim",
   "folke/noice.nvim",
   "folke/persistence.nvim",
-  "folke/trouble.nvim",
+  -- "folke/trouble.nvim",
   "lewis6991/gitsigns.nvim",
   "nvimdev/dashboard-nvim",
   -- "rcarriga/nvim-notify",
