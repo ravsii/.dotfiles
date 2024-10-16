@@ -1,7 +1,6 @@
 local list = {
   "3rd/image.nvim",
   "catppuccin/nvim",
-  "folke/flash.nvim",
   "folke/noice.nvim",
   "folke/persistence.nvim",
   -- "folke/trouble.nvim",
