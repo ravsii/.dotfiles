@@ -3,6 +3,11 @@ local config = wezterm.config_builder()
 
 config.color_scheme = "Tokyo Night Storm"
 
+-- Rendering engine
+config.front_end = "WebGpu"
+config.webgpu_power_preference = "HighPerformance"
+config.webgpu_force_fallback_adapter = false
+
 -- Fonts
 config.font = wezterm.font("CaskaydiaCove Nerd Font Mono", { weight = "DemiBold" })
 config.font_size = 22
@@ -36,8 +41,8 @@ config.keys = {
 	-- Split navigation
 	{ key = "LeftArrow", mods = mods, action = wezterm.action.ActivatePaneDirection("Left") },
 	{ key = "RightArrow", mods = mods, action = wezterm.action.ActivatePaneDirection("Right") },
-	{ key = "UpArrow", mods = mods, action = wezterm.actionActivatePaneDirection("Up") },
-	{ key = "DownArrow", mods = mods, action = wezterm.actionActivatePaneDirection("Down") },
+	{ key = "UpArrow", mods = mods, action = wezterm.action.ActivatePaneDirection("Up") },
+	{ key = "DownArrow", mods = mods, action = wezterm.action.ActivatePaneDirection("Down") },
 
 	-- Split Size
 	{ key = "LeftArrow", mods = mods .. "|ALT", action = wezterm.action.AdjustPaneSize({ "Left", 5 }) },
