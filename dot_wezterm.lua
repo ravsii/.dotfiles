@@ -27,6 +27,7 @@ config.window_padding = {
 -- Wezterm window
 config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 config.use_fancy_tab_bar = false
+config.adjust_window_size_when_changing_font_size = false
 
 -- Tabs
 config.tab_max_width = 32
