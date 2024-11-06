@@ -5,7 +5,7 @@ local list = {
   "folke/persistence.nvim",
   "folke/trouble.nvim",
   "lewis6991/gitsigns.nvim",
-  "nvimdev/dashboard-nvim",
+  -- "nvimdev/dashboard-nvim",
   -- "rcarriga/nvim-notify",
   "theHamsta/nvim-dap-virtual-text",
   "MeanderingProgrammer/render-markdown.nvim",
