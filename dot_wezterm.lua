@@ -34,25 +34,40 @@ config.tab_max_width = 32
 
 -- Keybinds
 local mods = "CTRL|SHIFT"
+local a = wezterm.action
 config.keys = {
 	-- Splits
-	{ key = "|", mods = mods, action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
-	{ key = "Enter", mods = mods, action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
+	{ key = "|", mods = mods, action = a.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
+	{ key = "Enter", mods = mods, action = a.SplitVertical({ domain = "CurrentPaneDomain" }) },
 
 	-- Split navigation
-	{ key = "LeftArrow", mods = mods, action = wezterm.action.ActivatePaneDirection("Left") },
-	{ key = "RightArrow", mods = mods, action = wezterm.action.ActivatePaneDirection("Right") },
-	{ key = "UpArrow", mods = mods, action = wezterm.action.ActivatePaneDirection("Up") },
-	{ key = "DownArrow", mods = mods, action = wezterm.action.ActivatePaneDirection("Down") },
+	{ key = "LeftArrow", mods = mods, action = a.ActivatePaneDirection("Left") },
+	{ key = "RightArrow", mods = mods, action = a.ActivatePaneDirection("Right") },
+	{ key = "UpArrow", mods = mods, action = a.ActivatePaneDirection("Up") },
+	{ key = "DownArrow", mods = mods, action = a.ActivatePaneDirection("Down") },
 
 	-- Split Size
-	{ key = "LeftArrow", mods = mods .. "|ALT", action = wezterm.action.AdjustPaneSize({ "Left", 5 }) },
-	{ key = "RightArrow", mods = mods .. "|ALT", action = wezterm.action.AdjustPaneSize({ "Right", 5 }) },
-	{ key = "UpArrow", mods = mods .. "|ALT", action = wezterm.action.AdjustPaneSize({ "Up", 5 }) },
-	{ key = "DownArrow", mods = mods .. "|ALT", action = wezterm.action.AdjustPaneSize({ "Down", 5 }) },
+	{ key = "LeftArrow", mods = mods .. "|ALT", action = a.AdjustPaneSize({ "Left", 5 }) },
+	{ key = "RightArrow", mods = mods .. "|ALT", action = a.AdjustPaneSize({ "Right", 5 }) },
+	{ key = "UpArrow", mods = mods .. "|ALT", action = a.AdjustPaneSize({ "Up", 5 }) },
+	{ key = "DownArrow", mods = mods .. "|ALT", action = a.AdjustPaneSize({ "Down", 5 }) },
 
 	-- Split close
-	{ key = "w", mods = mods, action = wezterm.action.CloseCurrentPane({ confirm = true }) },
+	{ key = "w", mods = mods, action = a.CloseCurrentPane({ confirm = true }) },
+
+	-- Tab Rename
+	{
+		key = "<", -- comma, but since I use shift it's a '<'
+		mods = mods,
+		action = a.PromptInputLine({
+			description = "Enter new name for tab",
+			action = wezterm.action_callback(function(window, _, line)
+				if line then
+					window:active_tab():set_title(line)
+				end
+			end),
+		}),
+	},
 }
 
 return config
