@@ -1,0 +1,53 @@
+# Tokyo Night
+# https://github.com/folke/tokyonight.nvim/blob/main/extras/lazygit/tokyonight_storm.yml
+gui:
+  nerdFontsVersion: "3"
+  theme:
+    activeBorderColor:
+      - "#ff9e64"
+      - "bold"
+    inactiveBorderColor:
+      - "#29a4bd"
+    searchingActiveBorderColor:
+      - "#ff9e64"
+      - "bold"
+    optionsTextColor:
+      - "#7aa2f7"
+    selectedLineBgColor:
+      - "#2e3c64"
+    cherryPickedCommitFgColor:
+      - "#7aa2f7"
+    cherryPickedCommitBgColor:
+      - "#bb9af7"
+    markedBaseCommitFgColor:
+      - "#7aa2f7"
+    markedBaseCommitBgColor:
+      - "#e0af68"
+    unstagedChangesColor:
+      - "#db4b4b"
+    defaultFgColor:
+      - "#c0caf5"
+
+  # Filter mode: When searching/filtering, use fuzzy matching
+  filterMode: fuzzy
+
+  spinner:
+    # The frames of the spinner animation.
+    frames:
+      - "⠋"
+      - "⠙"
+      - "⠸"
+      - "⠼"
+      - "⠴"
+      - "⠦"
+      - "⠧"
+    # The "speed" of the spinner in milliseconds.
+    rate: 30
+
+# Don't prompt to return from subprocess when closing child processes (commitizen, etc)
+promptToReturnFromSubprocess: false
+
+git:
+  paging:
+    colorArg: always
+    pager: delta --paging=never --tabs=2
