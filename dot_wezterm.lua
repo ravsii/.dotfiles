@@ -16,6 +16,10 @@ config.bold_brightens_ansi_colors = true
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 config.freetype_load_flags = "NO_HINTING"
 
+-- Underline settings (for nvim)
+config.underline_thickness = 2
+config.underline_position = -4
+
 -- Padding
 config.window_padding = {
 	left = 0,

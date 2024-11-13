@@ -3,3 +3,7 @@ README.*
 
 # nvim
 **/spell/
+
+# k9s data
+k9s/clusters/**
+k9s/*.log
