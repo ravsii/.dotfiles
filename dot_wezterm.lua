@@ -18,7 +18,7 @@ config.freetype_load_flags = "NO_HINTING"
 
 -- Underline settings (for nvim)
 config.underline_thickness = 2
-config.underline_position = -4
+config.underline_position = -3
 
 -- Padding
 config.window_padding = {
