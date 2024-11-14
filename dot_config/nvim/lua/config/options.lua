@@ -23,6 +23,6 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
   return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
 
-vim.g.lazyvim_picker = "fzf"
+vim.g.lazyvim_picker = "telescope"
 -- disable netrw
 vim.g.loaded_netrwPlugin = 0
