@@ -6,8 +6,9 @@ return {
     opts.options.style_preset = bufferline.style_preset.default
     opts.options.separator_style = "slope"
     opts.options.always_show_bufferline = true
+    opts.options.show_buffer_icons = true
     opts.options.show_buffer_close_icons = false
-    opts.options.indicator = { style = "underline" }
+    opts.options.indicator = { icon = "x", style = "underline" }
 
     return opts
   end,
