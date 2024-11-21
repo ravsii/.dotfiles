@@ -1,5 +1,4 @@
 return {
-  { "folke/todo-comments.nvim", keys = {} },
   {
     "klen/nvim-config-local",
     opts = {
@@ -13,39 +12,6 @@ return {
       commands_create = true, -- Create commands (ConfigLocalSource, ConfigLocalEdit, ConfigLocalTrust, ConfigLocalIgnore)
       silent = false, -- Disable plugin messages (Config loaded/ignored)
       lookup_parents = true, -- Lookup config files in parent directories
-    },
-  },
-  {
-    "folke/which-key.nvim",
-    opts = function(_, opts)
-      opts.icons = {
-        rules = false,
-      }
-    end,
-  },
-  {
-    "smjonas/inc-rename.nvim",
-    cmd = "IncRename",
-    opts = {
-      preview_empty_name = true,
-    },
-  },
-  {
-    "tummetott/unimpaired.nvim",
-    -- I randomly found this behaviour in Helix, and it's really life-changing
-    opts = {
-      keymaps = {
-        blank_above = {
-          mapping = "[<Space>",
-          description = "Add [count] blank lines above",
-          dot_repeat = true,
-        },
-        blank_below = {
-          mapping = "]<Space>",
-          description = "Add [count] blank lines below",
-          dot_repeat = true,
-        },
-      },
     },
   },
   {
