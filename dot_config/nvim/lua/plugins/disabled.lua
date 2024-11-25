@@ -1,7 +1,7 @@
 local list = {
   "catppuccin/nvim",
   "folke/persistence.nvim",
-  "folke/trouble.nvim",
+  -- "folke/trouble.nvim",
   "folke/noice.nvim",
   "theHamsta/nvim-dap-virtual-text",
   "MeanderingProgrammer/render-markdown.nvim",
