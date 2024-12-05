@@ -8,7 +8,6 @@ return {
     opts.options.always_show_bufferline = true
     opts.options.show_buffer_close_icons = false
     opts.options.tab_size = 1 -- As min as possible
-    -- opts.options.indicator = { style = "" }
 
     return opts
   end,
