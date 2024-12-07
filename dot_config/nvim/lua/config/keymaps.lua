@@ -8,6 +8,3 @@ map({ "v", "n" }, "<Up>", "<Nop>", { desc = "remove arrow-up bind" })
 map({ "v", "n" }, "<Down>", "<Nop>", { desc = "remove arrow-down bind" })
 map({ "v", "n" }, "<Right>", "<Nop>", { desc = "remove arrow-right bind" })
 map({ "v", "n" }, "<Left>", "<Nop>", { desc = "remove arrow-up bind" })
-
--- <C-a> is taken by tmux
-map({ "n", "v" }, "<M-x>", "<C-a>", { noremap = true, desc = "Increment number" })
