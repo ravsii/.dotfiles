@@ -15,6 +15,6 @@ opt.relativenumber = true
 opt.fixeol = false
 opt.conceallevel = 0
 
-vim.g.lazyvim_picker = "telescope"
+vim.g.lazyvim_picker = "fzf"
 -- disable netrw
 vim.g.loaded_netrwPlugin = 0
