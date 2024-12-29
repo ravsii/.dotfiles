@@ -1,7 +1,9 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
-config.color_scheme = "Tokyo Night Storm"
+local rose_pine_theme = wezterm.plugin.require("https://github.com/neapsix/wezterm").moon
+config.colors = rose_pine_theme.colors()
+config.window_frame = rose_pine_theme.window_frame()
 
 -- Rendering
 config.front_end = "WebGpu"
