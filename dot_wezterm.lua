@@ -3,10 +3,11 @@ local config = wezterm.config_builder()
 
 config.color_scheme = "Tokyo Night Storm"
 
--- Rendering engine
+-- Rendering
 config.front_end = "WebGpu"
 config.webgpu_power_preference = "HighPerformance"
 config.webgpu_force_fallback_adapter = false
+config.max_fps = 240
 
 -- Fonts
 config.font = wezterm.font("CaskaydiaCove Nerd Font Mono", { weight = "DemiBold" })
