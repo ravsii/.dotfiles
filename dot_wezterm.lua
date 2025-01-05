@@ -9,11 +9,11 @@ config.window_frame = rose_pine_theme.window_frame()
 config.front_end = "WebGpu"
 config.webgpu_power_preference = "HighPerformance"
 config.webgpu_force_fallback_adapter = false
-config.max_fps = 240
+config.max_fps = 120
 
 -- Fonts
 config.font = wezterm.font("CaskaydiaCove Nerd Font Mono", { weight = "DemiBold" })
-config.font_size = 22
+config.font_size = 16
 config.cell_width = 0.9
 config.bold_brightens_ansi_colors = true
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
@@ -27,7 +27,7 @@ config.underline_position = -3
 config.window_padding = {
 	left = 0,
 	right = 0,
-	top = 0,
+	top = "24pt",
 	bottom = 0,
 }
 
@@ -38,6 +38,7 @@ config.adjust_window_size_when_changing_font_size = false
 
 -- Tabs
 config.tab_max_width = 32
+config.tab_bar_at_bottom = true
 
 -- Keybinds
 local mods = "CTRL|SHIFT"
