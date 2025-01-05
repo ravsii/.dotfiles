@@ -11,6 +11,12 @@ bold-is-bright = true
 # Input-related
 macos-option-as-alt = true
 
+# Ghostty-related
+auto-update = check
+auto-update-channel = stable
+quit-after-last-window-closed = true
+shell-integration-features = true
+
 # Theme
 theme = rose-pine-moon
 
