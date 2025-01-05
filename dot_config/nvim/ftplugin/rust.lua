@@ -1,5 +1,5 @@
-local o = vim.opt
+local opt = vim.opt
 
-o.colorcolumn = "80,100"
-o.tw = 79
-o.sw = 79
+opt.colorcolumn = "80,100"
+opt.tabstop = 79
+opt.shiftwidth = 79

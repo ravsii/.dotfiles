@@ -8,7 +8,6 @@ parser_config.d2 = {
   filetype = "d2",
 }
 
-vim.opt.rtp:append("~/dev/OpenSource/tree-sitter-d2")
 vim.filetype.add({
   extension = {
     d2 = "d2",

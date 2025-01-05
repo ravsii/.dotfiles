@@ -44,10 +44,12 @@ return {
         },
         lualine_c = {
           { LazyVim.lualine.pretty_path(), padding = { left = 1, right = 0 } },
-          { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
+        },
+        lualine_x = {
+          { "filetype", icon_only = false, separator = "", padding = { left = 0, right = 1 } },
         },
         lualine_y = {
-          { "location", padding = { left = 1, right = 1 } },
+          { "location", padding = { left = 0, right = 1 } },
         },
         lualine_z = {
           { "progress", separator = " ", padding = { left = 1, right = 0 } },
