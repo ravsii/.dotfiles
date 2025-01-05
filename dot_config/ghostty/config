@@ -1,0 +1,44 @@
+# Fonts
+font-size = 16
+font-family = "CaskaydiaCove Nerd Font Mono"
+font-thicken = true
+font-feature = -calt,-clig,-liga
+
+# Text-related
+adjust-cell-width = "-5%"
+bold-is-bright = true
+
+# Input-related
+macos-option-as-alt = true
+
+# Theme
+theme = rose-pine-moon
+
+# Window
+window-decoration = true
+macos-titlebar-style = tabs
+macos-titlebar-proxy-icon = visible
+
+# Keybinds
+    # Config-related
+    keybind = cmd+r=reload_config
+
+    # Splits
+    keybind = ctrl+shift+\=new_split:right
+    keybind = ctrl+shift+enter=new_split:down
+
+    # Split Navigation
+    keybind = ctrl+shift+h=goto_split:left
+    keybind = ctrl+shift+j=goto_split:bottom
+    keybind = ctrl+shift+k=goto_split:top
+    keybind = ctrl+shift+l=goto_split:right
+
+    # Split Resizing
+    keybind = cmd+alt+left=resize_split:left,20
+    keybind = cmd+alt+down=resize_split:down,20
+    keybind = cmd+alt+up=resize_split:up,20
+    keybind = cmd+alt+right=resize_split:right,20
+
+    # Other split actions
+    keybind = ctrl+shift+e=equalize_splits
+    keybind = ctrl+shift+w=close_surface
