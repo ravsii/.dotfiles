@@ -2,42 +2,56 @@
 font-size = 16
 font-family = "CaskaydiaCove Nerd Font Mono"
 font-thicken = true
-font-feature = -calt,-clig,-liga
+font-feature = -calt
+font-feature = -clig
+font-feature = -liga
 
 # Text-related
 adjust-cell-width = "-5%"
 bold-is-bright = true
 
 # Input-related
+cursor-style = block
 macos-option-as-alt = true
+mouse-hide-while-typing = true
 
 # Ghostty-related
 auto-update = check
 auto-update-channel = stable
 quit-after-last-window-closed = true
-shell-integration-features = true
+
+shell-integration = zsh
+shell-integration-features = cursor,title
 
 # Theme
 theme = rose-pine-moon
 
+# Icon
+macos-icon = custom-style
+macos-icon-frame = plastic
+
 # Window
-window-decoration = true
-macos-titlebar-style = tabs
+background-opacity=0.9
+background-blur-radius=20
 macos-titlebar-proxy-icon = visible
+macos-titlebar-style = tabs
+window-decoration = true
+window-height = 24
+window-width = 80
 
 # Keybinds
     # Config-related
     keybind = cmd+r=reload_config
 
     # Splits
-    keybind = ctrl+shift+\=new_split:right
+    keybind = ctrl+shift+physical:\=new_split:right
     keybind = ctrl+shift+enter=new_split:down
 
     # Split Navigation
-    keybind = ctrl+shift+h=goto_split:left
-    keybind = ctrl+shift+j=goto_split:bottom
-    keybind = ctrl+shift+k=goto_split:top
-    keybind = ctrl+shift+l=goto_split:right
+    keybind = ctrl+shift+physical:h=goto_split:left
+    keybind = ctrl+shift+physical:j=goto_split:bottom
+    keybind = ctrl+shift+physical:k=goto_split:top
+    keybind = ctrl+shift+physical:l=goto_split:right
 
     # Split Resizing
     keybind = cmd+alt+left=resize_split:left,20
@@ -46,5 +60,5 @@ macos-titlebar-proxy-icon = visible
     keybind = cmd+alt+right=resize_split:right,20
 
     # Other split actions
-    keybind = ctrl+shift+e=equalize_splits
-    keybind = ctrl+shift+w=close_surface
+    keybind = ctrl+shift+physical:e=equalize_splits
+    keybind = ctrl+shift+physical:w=close_surface
