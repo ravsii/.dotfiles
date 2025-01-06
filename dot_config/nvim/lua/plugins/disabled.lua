@@ -3,6 +3,7 @@ local list = {
   "folke/persistence.nvim",
   -- "folke/trouble.nvim",
   "folke/noice.nvim",
+  "folke/flash.nvim",
   "theHamsta/nvim-dap-virtual-text",
   "MeanderingProgrammer/render-markdown.nvim",
 }
