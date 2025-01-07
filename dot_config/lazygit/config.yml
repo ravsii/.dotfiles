@@ -46,8 +46,3 @@ gui:
 
 # Don't prompt to return from subprocess when closing child processes (commitizen, etc)
 promptToReturnFromSubprocess: false
-
-git:
-  paging:
-    colorArg: always
-    pager: delta --paging=never --tabs=2
