@@ -4,8 +4,7 @@ return {
   cmd = { "SwaggerPreview", "SwaggerPreviewStop", "SwaggerPreviewToggle" },
   build = "npm i",
   keys = {
-    { "<leader>c[", mode = "v", group = "Swagger Preview" },
-    -- { "<leader>cS", "<cmd>SwaggerPreviewToggle<cr>", desc = "Toggle Swagger Preview" },
+    { "<leader>cP", "<cmd>SwaggerPreview<cr>", desc = "Toggle Swagger Preview" },
   },
   opts = {
     port = 6969,
