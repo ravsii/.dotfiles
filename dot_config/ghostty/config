@@ -11,7 +11,9 @@ adjust-cell-width = "-5%"
 bold-is-bright = true
 
 # Input-related
-cursor-style = block
+cursor-style = block_hollow
+adjust-cursor-thickness = 1
+cursor-invert-fg-bg = true
 macos-option-as-alt = true
 mouse-hide-while-typing = true
 
@@ -41,25 +43,25 @@ window-height = 24
 window-width = 80
 
 # Keybinds
-    # Config-related
-    keybind = cmd+r=reload_config
+# Config-related
+keybind = cmd+r=reload_config
 
-    # Splits
-    keybind = ctrl+shift+physical:\=new_split:right
-    keybind = ctrl+shift+enter=new_split:down
+# Splits
+keybind = ctrl+shift+physical:\=new_split:right
+keybind = ctrl+shift+enter=new_split:down
 
-    # Split Navigation
-    keybind = ctrl+shift+physical:h=goto_split:left
-    keybind = ctrl+shift+physical:j=goto_split:bottom
-    keybind = ctrl+shift+physical:k=goto_split:top
-    keybind = ctrl+shift+physical:l=goto_split:right
+# Split Navigation
+keybind = ctrl+shift+physical:h=goto_split:left
+keybind = ctrl+shift+physical:j=goto_split:bottom
+keybind = ctrl+shift+physical:k=goto_split:top
+keybind = ctrl+shift+physical:l=goto_split:right
 
-    # Split Resizing
-    keybind = cmd+alt+left=resize_split:left,20
-    keybind = cmd+alt+down=resize_split:down,20
-    keybind = cmd+alt+up=resize_split:up,20
-    keybind = cmd+alt+right=resize_split:right,20
+# Split Resizing
+keybind = cmd+alt+left=resize_split:left,20
+keybind = cmd+alt+down=resize_split:down,20
+keybind = cmd+alt+up=resize_split:up,20
+keybind = cmd+alt+right=resize_split:right,20
 
-    # Other split actions
-    keybind = ctrl+shift+physical:e=equalize_splits
-    keybind = ctrl+shift+physical:w=close_surface
+# Other split actions
+keybind = ctrl+shift+physical:e=equalize_splits
+keybind = ctrl+shift+physical:w=close_surface
