@@ -1,0 +1,17 @@
+export XDG_CONFIG_HOME="$HOME/.config"
+
+# User configuration
+export CLICOLOR=1
+
+# If you come from bash you might have to change your $PATH.
+export PATH=$PATH:$(go env GOPATH)/bin
+export PATH=$PATH:$HOME/.local/bin
+
+alias lg="lazygit"
+alias fix_gpg="gpgconf --kill gpg-agent"
+alias ktx="kubectx"
+alias kns="kubens"
+alias k="kubectl"
+
+eval "$(zoxide init zsh)"
+eval "$(starship init zsh)"
