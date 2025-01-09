@@ -7,14 +7,13 @@ $git_branch\
 $git_state\
 $git_status\
 $python\
-$character"""
-
-right_format = """
 $cmd_duration\
-"""
+$character"""
 
 [directory]
 style = "blue"
+truncate_to_repo = false
+truncation_length = 0
 
 [character]
 format = "$symbol "
@@ -27,11 +26,11 @@ format = "[$branch]($style) "
 style = "bright-black"
 
 [git_status]
-format = "[($ahead_behind$stashed) ]($style)"
+format = "[($ahead_behind$stashed)]($style)"
 style = "cyan"
-ahead = "$count>"
-diverged = "<$behind_count $ahead_count>"
-behind = "<$count"
+ahead = "$count> "
+diverged = "<$behind_count $ahead_count> "
+behind = "<$count "
 stashed = "≡"
 
 [git_state]
@@ -39,7 +38,7 @@ format = '\([$state( $progress_current/$progress_total)]($style)\) '
 style = "bright-black"
 
 [cmd_duration]
-format = "[$duration]($style)"
+format = "[$duration]($style) "
 style = "yellow"
 
 [python]
