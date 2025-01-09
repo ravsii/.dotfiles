@@ -1,11 +1,11 @@
 local list = {
-  "catppuccin/nvim",
-  "folke/persistence.nvim",
-  -- "folke/trouble.nvim",
-  "folke/noice.nvim",
-  "folke/flash.nvim",
-  "theHamsta/nvim-dap-virtual-text",
   "MeanderingProgrammer/render-markdown.nvim",
+  "catppuccin/nvim",
+  "folke/flash.nvim",
+  "folke/noice.nvim",
+  "folke/persistence.nvim",
+  "theHamsta/nvim-dap-virtual-text",
+  -- "folke/trouble.nvim",
 }
 
 -- @returns table[]
