@@ -11,7 +11,7 @@ adjust-cell-width = "-5%"
 bold-is-bright = true
 
 # Input-related
-cursor-style = block_hollow
+cursor-style = block
 adjust-cursor-thickness = 1
 cursor-invert-fg-bg = true
 macos-option-as-alt = true
