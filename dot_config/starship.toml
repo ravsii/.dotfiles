@@ -31,7 +31,7 @@ style = "cyan"
 ahead = "$count> "
 diverged = "<$behind_count $ahead_count> "
 behind = "<$count "
-stashed = "≡"
+stashed = "≡ "
 
 [git_state]
 format = '\([$state( $progress_current/$progress_total)]($style)\) '
