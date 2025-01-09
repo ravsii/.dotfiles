@@ -34,8 +34,7 @@ macos-icon = custom-style
 macos-icon-frame = plastic
 
 # Window
-background-opacity=0.9
-background-blur-radius=20
+background-opacity = 1
 macos-titlebar-proxy-icon = visible
 macos-titlebar-style = tabs
 window-decoration = true
