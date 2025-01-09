@@ -1,47 +1,30 @@
-; keywords
-; [
- ; "bold"
- ; "border-radius"
- ; "direction"
- ; "double-border"
- ; "fill"
- ; "fill-pattern"
- ; "filled"
- ; "font"
- ; "font-color"
- ; "font-size"
- ; "italic"
- ; "label"
- ; "multiple"
- ; "opacity"
- ; "shadow"
- ; "shape"
- ; "source-arrowhead"
- ; "stroke"
- ; "stroke-dash"
- ; "stroke-width"
- ; "style"
- ; "target-arrowhead"
- ; "text-transform"
- ; "underline"
-; ] @keyword
 
-; comments
 (comment) @comment
 
-; strings
-(label) @string
-(escape_sequence) @escape
+[
+ (label)
+ (label_codeblock)
+] @string
 
-; d2 syntax
-(identifier) @function
+(escape_sequence) @string.escape
+
+(identifier) @variable
+(identifier
+  (identifier) @variable.member)
+; TODO: Move them to the parser
+((identifier) @constant.builtin
+ (#match? @constant.builtin "^(bold|border-radius|direction|double-border|fill|fill-pattern|filled|font|font-color|font-size|italic|label|multiple|opacity|shadow|shape|source-arrowhead|stroke|stroke-dash|stroke-width|style|target-arrowhead|text-transform|underline)$"))
+
 (connection) @operator
+(integer) @number
+(bool) @constant.builtin
 
-; uml methods
-(arguments (argument_name) @variable.parametr)
-(arguments (argument_type) @type)
+(import) @module
 
-; punctuation
+(argument_name) @variable.parameter
+(argument_type) @type
+
+
 [
   "["
   "]"

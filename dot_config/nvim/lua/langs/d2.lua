@@ -8,6 +8,15 @@ parser_config.d2 = {
   filetype = "d2",
 }
 
+parser_config.d2p = {
+  install_info = {
+    url = "https://git.pleshevski.ru/pleshevskiy/tree-sitter-d2",
+    revision = "main",
+    files = { "src/parser.c", "src/scanner.c" },
+    requires_generate_from_grammar = true,
+  },
+}
+
 vim.filetype.add({
   extension = {
     d2 = "d2",
