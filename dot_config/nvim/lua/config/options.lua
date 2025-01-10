@@ -15,6 +15,10 @@ opt.relativenumber = true
 opt.fixeol = false
 opt.conceallevel = 0
 
-vim.g.lazyvim_picker = "fzf"
 -- disable netrw
-vim.g.loaded_netrwPlugin = 0
+vim.g.loaded_netrwPlugin = 1
+vim.g.loaded_netrw = 1
+
+-- LazyVim specific
+vim.g.lazyvim_picker = "fzf"
+vim.g.lazyvim_python_lsp = "pyright"
