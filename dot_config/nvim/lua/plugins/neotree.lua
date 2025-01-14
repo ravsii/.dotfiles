@@ -1,6 +1,5 @@
 return {
   "nvim-neo-tree/neo-tree.nvim",
-  init = function() end, -- Disable neo-tree open on startup
   opts = {
     close_if_last_window = true,
     filesystem = {
