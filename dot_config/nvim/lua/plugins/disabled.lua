@@ -4,6 +4,7 @@ local list = {
   "folke/flash.nvim",
   "folke/noice.nvim",
   "folke/persistence.nvim",
+  "lewis6991/gitsigns.nvim",
   "theHamsta/nvim-dap-virtual-text",
   -- "folke/trouble.nvim",
 }
