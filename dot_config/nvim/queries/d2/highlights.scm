@@ -1,4 +1,7 @@
-((comment) @comment @spell)
+([
+  (comment)
+  (block_comment)
+] @comment @spell)
 
 [
   (label)
@@ -6,18 +9,20 @@
   (label_constraint)
 ] @string
 
-(escape_sequence) @string.escape
-
 ((label_constraint) @constant
   (#any-of? @constant
     "primary_key"
-    "foreign_key"
-    "unique"
     "PK"
+    "foreign_key"
     "FK"
+    "unique"
     "UNQ"
+    "NULL"
+    "NOT NULL"
   )
 )
+
+(escape_sequence) @string.escape
 
 
 (identifier) @function
@@ -65,6 +70,27 @@
   )
 )
 
+[
+ "$"
+] @keyword
+
+[(variable) (spread_variable)] @variable
+
+(variable (identifier) @variable.member)
+(variable (identifier_chain (identifier) @variable.member))
+
+(spread_variable (identifier) @variable.member)
+(spread_variable (identifier_chain (identifier) @variable.member))
+
+(identifier
+  (glob) @string.special.symbol)
+
+[
+  (glob)
+  (recursive_glob)
+  (global_glob)
+] @string.special
+
 (connection) @operator
 (connection_identifier) @property
 (integer) @number
@@ -75,7 +101,6 @@
 
 (argument_name) @variable.parameter
 (argument_type) @type
-
 
 [
   "["
@@ -90,6 +115,7 @@
   "|`"
   "`|"
 ] @punctuation.bracket
+
 [
   "."
   ";"
