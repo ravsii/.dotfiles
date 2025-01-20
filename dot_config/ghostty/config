@@ -36,14 +36,14 @@ macos-icon-frame = plastic
 # Window
 background-opacity = 1
 macos-titlebar-proxy-icon = visible
-macos-titlebar-style = hidden
+macos-titlebar-style = tabs
 window-decoration = true
 window-height = 24
 window-width = 80
 
 # Padding
-window-padding-x = 5
-window-padding-y = 5
+window-padding-x = 0
+window-padding-y = 0
 window-padding-color = extend-always
 
 # Keybinds
