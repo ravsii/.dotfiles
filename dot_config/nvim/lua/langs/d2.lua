@@ -10,7 +10,11 @@ parser_config.d2 = {
 
 vim.filetype.add({
   extension = {
-    d2 = "d2",
+    d2 = function()
+      return "d2", function(bufnr)
+        vim.bo[bufnr].commentstring = "# %s"
+      end
+    end,
   },
 })
 

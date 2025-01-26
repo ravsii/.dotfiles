@@ -22,8 +22,7 @@
   )
 )
 
-(escape_sequence) @string.escape
-
+(escape) @string.escape
 
 (identifier) @function
 ((identifier) @function.builtin
@@ -70,8 +69,15 @@
   )
 )
 
+((identifier) @keyword
+  (#eq? @keyword "_")
+)
+
 [
  "$"
+ "...$"
+ (glob_filter)
+ (inverse_glob_filter)
 ] @keyword
 
 [(variable) (spread_variable)] @variable
