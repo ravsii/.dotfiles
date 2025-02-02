@@ -20,7 +20,7 @@ vim.g.loaded_netrwPlugin = 1
 vim.g.loaded_netrw = 1
 
 -- LazyVim specific
-vim.g.lazyvim_picker = "fzf"
+vim.g.lazyvim_picker = "snacks"
 vim.g.lazyvim_python_lsp = "pyright"
 
 -- :Inspect fix https://github.com/neovim/neovim/issues/31675
