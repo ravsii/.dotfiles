@@ -34,6 +34,9 @@ return {
     name = "rose-pine",
     opts = {
       variant = "moon",
+      styles = {
+        transparency = true,
+      },
     },
   },
   {

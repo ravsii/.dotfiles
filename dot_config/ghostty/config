@@ -1,5 +1,5 @@
 # Fonts
-font-size = 22
+font-size = 20
 font-family = "CaskaydiaCove Nerd Font Mono"
 font-thicken = true
 font-feature = -calt
@@ -7,7 +7,8 @@ font-feature = -clig
 font-feature = -liga
 
 # Text-related
-adjust-cell-width = "-5%"
+adjust-cell-width = 0
+adjust-cell-height = 0
 bold-is-bright = true
 
 # Input-related
@@ -34,7 +35,8 @@ macos-icon = custom-style
 macos-icon-frame = plastic
 
 # Window
-background-opacity = 1
+background-opacity = 0.75
+background-blur = true
 macos-titlebar-proxy-icon = visible
 macos-titlebar-style = tabs
 window-decoration = true
@@ -44,7 +46,7 @@ window-width = 80
 # Padding
 window-padding-x = 5
 window-padding-y = 5
-window-padding-color = extend-always
+window-padding-color = background
 
 # Keybinds
 # Config-related
