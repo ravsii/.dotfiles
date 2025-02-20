@@ -1,16 +1,16 @@
 return {
   {
     "folke/snacks.nvim",
+
+    ---@module "snacks"
     ---@type snacks.Config
     opts = {
       ---@class snacks.scroll.Config
-      ---@field animate snacks.animate.Config
       scroll = {
         enabled = false,
       },
 
       ---@class snacks.gitbrowse.Config
-      ---@field url_patterns? table<string, table<string, string|fun(fields:snacks.gitbrowse.Fields):string>>
       gitbrowse = {
         url_patterns = {
           ["gitlab%.ru"] = {
@@ -19,6 +19,13 @@ return {
             commit = "/-/commit/{commit}",
           },
         },
+      },
+
+      ---@class snacks.picker.files.Config: snacks.picker.proc.Config
+      picker = {
+        hidden = true,
+        ignored = true,
+        supports_live = true,
       },
     },
   },
