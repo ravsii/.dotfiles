@@ -2,6 +2,11 @@ return {
   {
     "folke/snacks.nvim",
 
+  -- stylua: ignore
+  keys = {
+    { "<leader><space>", LazyVim.pick("files", { root = false }), desc = "Find Files (cwd)" },
+  },
+
     ---@module "snacks"
     ---@type snacks.Config
     opts = {
