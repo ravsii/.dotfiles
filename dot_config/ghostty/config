@@ -28,7 +28,7 @@ shell-integration = zsh
 shell-integration-features = cursor,title
 
 # Theme
-theme = rose-pine-moon
+theme = tokyonight-storm
 unfocused-split-opacity = 0.95
 
 # Icon
