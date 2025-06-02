@@ -14,6 +14,7 @@ opt.tw = 79
 opt.relativenumber = true
 opt.fixeol = false
 opt.conceallevel = 0
+opt.messagesopt = "wait:2000,history:500"
 
 -- disable netrw
 vim.g.loaded_netrwPlugin = 1
