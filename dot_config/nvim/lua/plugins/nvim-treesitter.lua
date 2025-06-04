@@ -8,10 +8,10 @@ return {
       swap = {
         enable = true,
         swap_previous = {
-          ["H"] = "@parameter.inner",
+          ["<M-h>"] = "@parameter.inner",
         },
         swap_next = {
-          ["L"] = "@parameter.inner",
+          ["<M-l>"] = "@parameter.inner",
         },
       },
     },
