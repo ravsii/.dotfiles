@@ -8,6 +8,8 @@ export CLICOLOR=1
 export PATH=$PATH:$(go env GOPATH)/bin
 export PATH=$PATH:$HOME/.local/bin
 
+alias vi="nvim"
+alias rvi="NVIM_APPNAME=nvim-rvs nvim"
 alias lg="lazygit"
 alias fix_gpg="gpgconf --kill gpg-agent"
 alias ktx="kubectx"
