@@ -8,7 +8,7 @@ opt.autowrite = true
 opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus" -- Sync with system clipboard
 opt.colorcolumn = "80,120"
 opt.completeopt = "menu,menuone,noselect"
-opt.conceallevel = 2
+opt.conceallevel = 0
 opt.confirm = true
 opt.cursorline = true
 opt.expandtab = true
@@ -55,7 +55,10 @@ opt.spelllang = { "en", "ru" }
 opt.splitbelow = true -- Put new windows below current
 opt.splitkeep = "screen"
 opt.splitright = true -- Put new windows right of current
-opt.statuscolumn = [[%!v:lua.require'snacks.statuscolumn'.get()]]
+
+-- FIXME:
+-- opt.statuscolumn = [[%!v:lua.require'snacks.statuscolumn'.get()]]
+
 opt.tabstop = 2 -- Number of spaces tabs count for
 opt.termguicolors = true -- True color support
 opt.textwidth = 79
