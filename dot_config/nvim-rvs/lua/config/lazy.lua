@@ -18,7 +18,6 @@ vim.opt.rtp:prepend(lazypath)
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
-    -- { import = "config/options" },
     -- Core (Lsp, Formatting, etc)
     { import = "core" },
 
@@ -29,4 +28,6 @@ require("lazy").setup({
   install = { colorscheme = { "rose-pine" } },
   -- automatically check for plugin updates
   checker = { enabled = false },
+
+  change_detection = { enabled = true, notify = false },
 })

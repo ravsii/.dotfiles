@@ -2,13 +2,14 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     lazy = false,
-    branch = "main",
+    branch = "master",
     build = ":TSUpdate",
     keys = {
       { "<c-space>", desc = "Increment Selection" },
       { "<bs>", desc = "Decrement Selection", mode = "x" },
     },
     init = function()
+      -- Works only on master branch
       vim.api.nvim_create_autocmd("FileType", {
         pattern = "*",
         callback = function(ev)
@@ -30,9 +31,6 @@ return {
     end,
     opts = {
       ensure_installed = {
-        "bash",
-        "c",
-        "diff",
         "go",
         "html",
         "javascript",
@@ -42,14 +40,11 @@ return {
         "lua",
         "luadoc",
         "markdown",
-        "markdown_inline",
         "rust",
         "toml",
-        "tsx",
         "typescript",
         "vim",
         "vimdoc",
-        "xml",
         "yaml",
       },
       highlight = { enable = true },
