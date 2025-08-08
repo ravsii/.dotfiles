@@ -18,10 +18,13 @@ vim.opt.rtp:prepend(lazypath)
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
-    -- Core (Lsp, Formatting, etc)
+    -- Core: Lsp, Formatting, etc
     { import = "core" },
 
-    -- Plugins
+    -- Language specific plugins/settings
+    { import = "langs" },
+
+    -- Plugins: Just random QOL stuff
     { import = "plugins" },
   },
   -- Colorscheme during installation

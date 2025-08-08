@@ -31,22 +31,12 @@ return {
     end,
     opts = {
       ensure_installed = {
-        "go",
-        "html",
-        "javascript",
-        "jsdoc",
-        "json",
-        "jsonc",
         "lua",
         "luadoc",
-        "markdown",
-        "rust",
-        "toml",
-        "typescript",
         "vim",
         "vimdoc",
-        "yaml",
       },
+      auto_install = true,
       highlight = { enable = true },
       indent = { enable = true },
       incremental_selection = {

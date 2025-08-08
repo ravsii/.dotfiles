@@ -1,57 +1,27 @@
---- --- @type vim.diagnostic.Opts
---- local config = {
----   signs = {
----     text = {
----       [vim.diagnostic.severity.ERROR] = "",
----       [vim.diagnostic.severity.WARN] = "",
----       [vim.diagnostic.severity.HINT] = "",
----       [vim.diagnostic.severity.INFO] = "",
----     },
----   },
----   update_in_insert = true,
----   underline = true,
----   severity_sort = true,
----   float = {
----     focusable = false,
----     style = "minimal",
----     border = "single",
----     source = "always",
----     header = "",
----     prefix = "",
----     suffix = "",
----   },
---- }
---- vim.diagnostic.config(config)
----
---- local icons = {
----   Class = " ",
----   Color = " ",
----   Constant = " ",
----   Constructor = " ",
----   Enum = " ",
----   EnumMember = " ",
----   Event = " ",
----   Field = " ",
----   File = " ",
----   Folder = " ",
----   Function = "󰊕 ",
----   Interface = " ",
----   Keyword = " ",
----   Method = "ƒ ",
----   Module = "󰏗 ",
----   Property = " ",
----   Snippet = " ",
----   Struct = " ",
----   Text = " ",
----   Unit = " ",
----   Value = " ",
----   Variable = " ",
---- }
----
---- local completion_kinds = vim.lsp.protocol.CompletionItemKind
---- for i, kind in ipairs(completion_kinds) do
----   completion_kinds[i] = icons[kind] and icons[kind] .. kind or kind
---- end
+local lspIcons = {
+  Class = " ",
+  Color = " ",
+  Constant = " ",
+  Constructor = " ",
+  Enum = " ",
+  EnumMember = " ",
+  Event = " ",
+  Field = " ",
+  File = " ",
+  Folder = " ",
+  Function = "󰊕 ",
+  Interface = " ",
+  Keyword = " ",
+  Method = "ƒ ",
+  Module = "󰏗 ",
+  Property = " ",
+  Snippet = " ",
+  Struct = " ",
+  Text = " ",
+  Unit = " ",
+  Value = " ",
+  Variable = " ",
+}
 
 return {
   {
@@ -87,7 +57,48 @@ return {
         vim.keymap.del("n", bind)
       end
     end,
-    config = function() end,
+    config = function()
+      --- @type vim.diagnostic.Opts
+      local config = {
+        signs = {
+          text = {
+            [vim.diagnostic.severity.ERROR] = "",
+            [vim.diagnostic.severity.WARN] = "",
+            [vim.diagnostic.severity.HINT] = "",
+            [vim.diagnostic.severity.INFO] = "",
+          },
+        },
+        update_in_insert = true,
+        underline = true,
+        severity_sort = true,
+        -- Enable this to enable the builtin LSP inlay hints on Neovim >= 0.10.0
+        -- Be aware that you also will need to properly configure your LSP server to
+        -- provide the inlay hints.
+        inlay_hints = {
+          enabled = true,
+        },
+        virtual_lines = {
+          current_line = false,
+        },
+        -- virtual_text = {
+        --   spacing = 4,
+        --   source = "if_many",
+        --   prefix = "●",
+        --   virt_text_hide = true,
+        --   virt_text_pos = "eol_right_align",
+        --   -- this will set set the prefix to a function that returns the diagnostics icon based on the severity
+        --   -- this only works on a recent 0.10.0 build. Will be set to "●" when not supported
+        --   -- prefix = "icons",
+        -- },
+      }
+
+      local completion_kinds = vim.lsp.protocol.CompletionItemKind
+      for i, kind in ipairs(completion_kinds) do
+        completion_kinds[i] = lspIcons[kind] and lspIcons[kind] .. kind or kind
+      end
+
+      vim.diagnostic.config(config)
+    end,
   },
   {
     "mason-org/mason.nvim",
@@ -102,7 +113,7 @@ return {
     },
     opts = {
       automatic_enable = true,
-      ensure_installed = { "lua_ls", "gopls" },
+      ensure_installed = { "lua_ls" },
     },
   },
 }
