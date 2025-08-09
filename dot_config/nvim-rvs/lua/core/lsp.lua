@@ -1,35 +1,7 @@
-local lspIcons = {
-  Class = " ",
-  Color = " ",
-  Constant = " ",
-  Constructor = " ",
-  Enum = " ",
-  EnumMember = " ",
-  Event = " ",
-  Field = " ",
-  File = " ",
-  Folder = " ",
-  Function = "󰊕 ",
-  Interface = " ",
-  Keyword = " ",
-  Method = "ƒ ",
-  Module = "󰏗 ",
-  Property = " ",
-  Snippet = " ",
-  Struct = " ",
-  Text = " ",
-  Unit = " ",
-  Value = " ",
-  Variable = " ",
-}
-
 return {
   {
     "neovim/nvim-lspconfig",
-    dependencies = {
-      -- FIXME:
-      -- "folke/snacks.nvim",
-    },
+    dependencies = { "folke/snacks.nvim" },
     keys = {
       -- {
       --   "<leader>cl",
@@ -58,14 +30,16 @@ return {
       end
     end,
     config = function()
+      local icons = require("icons")
+
       --- @type vim.diagnostic.Opts
       local config = {
         signs = {
           text = {
-            [vim.diagnostic.severity.ERROR] = "",
-            [vim.diagnostic.severity.WARN] = "",
-            [vim.diagnostic.severity.HINT] = "",
-            [vim.diagnostic.severity.INFO] = "",
+            [vim.diagnostic.severity.ERROR] = icons.diagIcons.Error,
+            [vim.diagnostic.severity.WARN] = icons.diagIcons.Warning,
+            [vim.diagnostic.severity.HINT] = icons.diagIcons.Hint,
+            [vim.diagnostic.severity.INFO] = icons.diagIcons.Info,
           },
         },
         update_in_insert = true,
@@ -78,23 +52,19 @@ return {
           enabled = true,
         },
         virtual_lines = {
-          current_line = false,
+          current_line = true,
         },
-        -- virtual_text = {
-        --   spacing = 4,
-        --   source = "if_many",
-        --   prefix = "●",
-        --   virt_text_hide = true,
-        --   virt_text_pos = "eol_right_align",
-        --   -- this will set set the prefix to a function that returns the diagnostics icon based on the severity
-        --   -- this only works on a recent 0.10.0 build. Will be set to "●" when not supported
-        --   -- prefix = "icons",
-        -- },
+        virtual_text = {
+          spacing = 2,
+          source = "if_many",
+          prefix = "",
+          virt_text_pos = "eol",
+        },
       }
 
       local completion_kinds = vim.lsp.protocol.CompletionItemKind
       for i, kind in ipairs(completion_kinds) do
-        completion_kinds[i] = lspIcons[kind] and lspIcons[kind] .. kind or kind
+        completion_kinds[i] = icons.lspIcons[kind] and icons.lspIcons[kind] .. kind or kind
       end
 
       vim.diagnostic.config(config)

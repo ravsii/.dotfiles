@@ -1,5 +1,14 @@
 return {
   {
+    "folke/which-key.nvim",
+    opts = {
+      spec = {
+        { "<BS>", desc = "Decrement Selection", mode = "x" },
+        { "<c-space>", desc = "Increment Selection", mode = { "x", "n" } },
+      },
+    },
+  },
+  {
     "nvim-treesitter/nvim-treesitter",
     lazy = false,
     branch = "master",
@@ -13,9 +22,8 @@ return {
       vim.api.nvim_create_autocmd("FileType", {
         pattern = "*",
         callback = function(ev)
-          parsers = require("nvim-treesitter.parsers")
+          local parsers = require("nvim-treesitter.parsers")
           local ft = vim.bo[ev.buf].filetype
-
           local p = parsers.ft_to_lang(ft)
 
           if parsers.has_parser(p) then
@@ -81,12 +89,8 @@ return {
     },
   },
   {
-    "folke/which-key.nvim",
-    opts = {
-      spec = {
-        { "<BS>", desc = "Decrement Selection", mode = "x" },
-        { "<c-space>", desc = "Increment Selection", mode = { "x", "n" } },
-      },
-    },
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    event = "VeryLazy",
+    enabled = true,
   },
 }

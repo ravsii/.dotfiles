@@ -56,9 +56,6 @@ opt.splitbelow = true -- Put new windows below current
 opt.splitkeep = "screen"
 opt.splitright = true -- Put new windows right of current
 
--- FIXME:
--- opt.statuscolumn = [[%!v:lua.require'snacks.statuscolumn'.get()]]
-
 opt.tabstop = 2 -- Number of spaces tabs count for
 opt.termguicolors = true -- True color support
 opt.textwidth = 79
@@ -70,6 +67,9 @@ opt.virtualedit = "block" -- Allow cursor to move where there is no text in visu
 opt.wildmode = "longest:full,full" -- Command-line completion mode
 opt.winminwidth = 5 -- Minimum window width
 opt.wrap = false -- Disable line wrap
+
+opt.exrc = true -- allow project-specific config
+opt.secure = true -- disable unsafe commands in local configs
 
 -- disable netrw
 vim.g.loaded_netrwPlugin = 1
