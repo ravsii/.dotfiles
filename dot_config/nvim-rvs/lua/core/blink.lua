@@ -2,7 +2,7 @@ return {
   {
     "saghen/blink.cmp",
     -- optional: provides snippets for the snippet source
-    dependencies = { "rafamadriz/friendly-snippets" },
+    dependencies = { "rafamadriz/friendly-snippets", "nvim-tree/nvim-web-devicons" },
 
     -- use a release tag to download pre-built binaries
     version = "1.*",
@@ -27,9 +27,18 @@ return {
 
       -- (Default) Only show the documentation popup when manually triggered
       completion = {
-        documentation = { auto_show = false },
+        documentation = { auto_show = true },
         trigger = { show_on_insert_on_trigger_character = false },
         list = { selection = { preselect = true, auto_insert = false } },
+        ghost_text = { enabled = true },
+        menu = {
+          draw = {
+            columns = {
+              { "label", "label_description" },
+              { "kind_icon", "kind", gap = 1 },
+            },
+          },
+        },
       },
 
       -- Default list of enabled providers defined so that you can extend it
@@ -44,6 +53,7 @@ return {
       --
       -- See the fuzzy documentation for more information
       fuzzy = { implementation = "prefer_rust_with_warning" },
+      signature = { enabled = true },
     },
     opts_extend = { "sources.default" },
   },

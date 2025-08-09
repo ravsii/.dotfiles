@@ -1,3 +1,12 @@
+local lspHover = function()
+  vim.lsp.buf.hover({
+    max_width = 80,
+    max_height = 24,
+    anchor_bias = "below",
+    wrap = true,
+  })
+end
+
 return {
   {
     "neovim/nvim-lspconfig",
@@ -15,7 +24,7 @@ return {
       { "gi", vim.lsp.buf.implementation, desc = "Goto Implementation" },
       { "gy", vim.lsp.buf.type_definition, desc = "Goto T[y]pe Definition" },
       { "gD", vim.lsp.buf.declaration, desc = "Goto Declaration" },
-      { "K", vim.lsp.buf.hover, desc = "Hover" },
+      { "K", lspHover, desc = "Hover" },
       { "gK", vim.lsp.buf.signature_help, desc = "Signature Help" },
       { "<c-k>", vim.lsp.buf.signature_help, mode = "i", desc = "Signature Help" },
       { "<leader>ca", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "v" } },

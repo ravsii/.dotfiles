@@ -22,6 +22,8 @@ local function get_scrollbar()
   return sbar
 end
 
+local ignoreFiles = require("files").ignored
+
 return {
   {
     "nvim-lualine/lualine.nvim",
@@ -34,8 +36,8 @@ return {
         section_separators = { left = "", right = "" },
         component_separators = { left = "", right = "" },
         disabled_filetypes = {
-          -- statusline = { "neo-tree" },
-          winbar = { "neo-tree" },
+          statusline = ignoreFiles,
+          winbar = ignoreFiles,
         },
         globalstatus = false,
       },

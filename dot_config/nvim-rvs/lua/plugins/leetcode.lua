@@ -37,6 +37,9 @@ return {
 
       image_support = false, ---@type boolean
 
+      ---@type lc.picker
+      picker = { provider = "snacks-picker" },
+
       console = {
         open_on_runcode = true, ---@type boolean
         dir = "row", --- @type lc.direction

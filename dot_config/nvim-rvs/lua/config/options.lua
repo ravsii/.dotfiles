@@ -71,6 +71,8 @@ opt.wrap = false -- Disable line wrap
 opt.exrc = true -- allow project-specific config
 opt.secure = true -- disable unsafe commands in local configs
 
+opt.winborder = "rounded"
+
 -- disable netrw
 vim.g.loaded_netrwPlugin = 1
 vim.g.loaded_netrw = 1
