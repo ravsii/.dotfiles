@@ -72,6 +72,7 @@ return {
     { "<leader>ub", function() Snacks.toggle.option("background", { off = "light", on = "dark", name = "Dark Background" }):toggle() end, desc = "Toggle Background", },
     { "<leader>uc", function() Snacks.toggle.option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2, name = "Conceal Level" }):toggle() end, desc = "Toggle Conceal Level", },
     { "<leader>ud", function() Snacks.toggle.diagnostics():toggle() end, desc = "Toggle Diagnostics", },
+    { "<leader>uh", function() Snacks.toggle.inlay_hints():toggle() end, desc = "Toggle Inlay Hints", },
     { "<leader>ug", function() Snacks.toggle.indent():toggle() end, desc = "Toggle Indent Guides", },
     { "<leader>ul", function() Snacks.toggle.line_number():toggle() end, desc = "Toggle Line Number", },
     { "<leader>us", function() Snacks.toggle.option("spell", { name = "Spelling" }):toggle() end, desc = "Toggle Spelling", },
@@ -85,34 +86,6 @@ return {
     { "<leader>dpp", function() Snacks.toggle.profiler() end, desc = "Toggle Profiler", },
     { "<leader>dph", function() Snacks.toggle.profiler_highlights() end, desc = "Toggle Profiler Highlights", },
   },
-
-  config = function()
-    -- LazyVim.format.snacks_toggle():map("<leader>uf")
-    -- LazyVim.format.snacks_toggle(true):map("<leader>uF")
-    Snacks.toggle.option("spell", { name = "Spelling" }):map("<leader>us")
-    Snacks.toggle.option("wrap", { name = "Wrap" }):map("<leader>uw")
-    Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map("<leader>uL")
-    Snacks.toggle.diagnostics():map("<leader>ud")
-    Snacks.toggle.line_number():map("<leader>ul")
-    Snacks.toggle
-      .option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2, name = "Conceal Level" })
-      :map("<leader>uc")
-    Snacks.toggle
-      .option("showtabline", { off = 0, on = vim.o.showtabline > 0 and vim.o.showtabline or 2, name = "Tabline" })
-      :map("<leader>uA")
-    Snacks.toggle.treesitter():map("<leader>uT")
-    Snacks.toggle.option("background", { off = "light", on = "dark", name = "Dark Background" }):map("<leader>ub")
-    Snacks.toggle.dim():map("<leader>uD")
-    Snacks.toggle.animate():map("<leader>ua")
-    Snacks.toggle.indent():map("<leader>ug")
-    Snacks.toggle.scroll():map("<leader>uS")
-    Snacks.toggle.profiler():map("<leader>dpp")
-    Snacks.toggle.profiler_highlights():map("<leader>dph")
-
-    if vim.lsp.inlay_hint then
-      Snacks.toggle.inlay_hints():map("<leader>uh")
-    end
-  end,
 
   ---@type snacks.Config
   opts = {
@@ -133,12 +106,15 @@ return {
     },
 
     scroll = { enabled = false },
-    indent = { enabled = true, char = "│" },
+    indent = {
+      enabled = true,
+      char = "│",
+    },
     input = { enabled = true },
     notify = { enabled = true },
     notifier = { enabled = true },
     scope = { enabled = true },
-    statuscolumn = { enabled = true },
+    statuscolumn = { enabled = false },
     toggle = { enabled = true },
     words = { enabled = true },
   },

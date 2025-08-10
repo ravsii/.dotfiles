@@ -31,6 +31,14 @@ return {
         { "<leader>;h", "<cmd>Leet hints<CR>", desc = "Hints" },
       })
 
+      -- Enable wrap for question window
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "leetcode.nvim",
+        callback = function()
+          vim.opt_local.wrap = true
+        end,
+      })
+
       --- @module 'leetcode'
       return {
         arg = leet_arg,
@@ -39,7 +47,7 @@ return {
           non_standalone = false,
         },
 
-        image_support = true, ---@type boolean
+        image_support = false, ---@type boolean
 
         editor = {
           reset_previous_code = false, ---@type boolean
