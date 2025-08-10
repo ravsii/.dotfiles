@@ -13,7 +13,7 @@ M.ignored = {
   "notify",
   "snacks_dashboard",
   "snacks_notif",
-  "snacks_terminal",
+  -- "snacks_terminal",
   "snacks_win",
   "toggleterm",
   "trouble",

@@ -1,42 +1,3 @@
---     "rcarriga/nvim-dap-ui",
---     opts = {
---       layouts = {
---         {
---           elements = {
---             {
---               id = "scopes",
---               size = 0.6,
---             },
---             {
---               id = "breakpoints",
---               size = 0.3,
---             },
---             {
---               id = "watches",
---               size = 0.1,
---             },
---             {
---               id = "stacks",
---               size = 0.1,
---             },
---           },
---           position = "left",
---           size = 60,
---         },
---         {
---           elements = {
---             {
---               id = "repl",
---               size = 1,
---             },
---           },
---           position = "bottom",
---           size = 20,
---         },
---       },
---     },
---   },
-
 ---@param config {type?:string, args?:string[]|fun():string[]?}
 local function get_args(config)
   local args = type(config.args) == "function" and (config.args() or {}) or config.args or {} --[[@as string[] | string ]]
@@ -64,18 +25,18 @@ return {
     -- stylua: ignore
     keys = {
       { "<leader>dB", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = "Breakpoint Condition" },
+      { "<leader>dC", function() require("dap").run_to_cursor() end, desc = "Run to Cursor" },
+      { "<leader>dO", function() require("dap").step_over() end, desc = "Step Over" },
+      { "<leader>dP", function() require("dap").pause() end, desc = "Pause" },
+      { "<leader>da", function() require("dap").continue({ before = get_args }) end, desc = "Run with Args" },
       { "<leader>db", function() require("dap").toggle_breakpoint() end, desc = "Toggle Breakpoint" },
       { "<leader>dc", function() require("dap").continue() end, desc = "Run/Continue" },
-      { "<leader>da", function() require("dap").continue({ before = get_args }) end, desc = "Run with Args" },
-      { "<leader>dC", function() require("dap").run_to_cursor() end, desc = "Run to Cursor" },
       { "<leader>dg", function() require("dap").goto_() end, desc = "Go to Line (No Execute)" },
       { "<leader>di", function() require("dap").step_into() end, desc = "Step Into" },
       { "<leader>dj", function() require("dap").down() end, desc = "Down" },
       { "<leader>dk", function() require("dap").up() end, desc = "Up" },
       { "<leader>dl", function() require("dap").run_last() end, desc = "Run Last" },
       { "<leader>do", function() require("dap").step_out() end, desc = "Step Out" },
-      { "<leader>dO", function() require("dap").step_over() end, desc = "Step Over" },
-      { "<leader>dP", function() require("dap").pause() end, desc = "Pause" },
       { "<leader>dr", function() require("dap").repl.toggle() end, desc = "Toggle REPL" },
       { "<leader>ds", function() require("dap").session() end, desc = "Session" },
       { "<leader>dt", function() require("dap").terminate() end, desc = "Terminate" },
@@ -131,7 +92,7 @@ return {
     opts = {
       winbar = {
         show = true,
-        sections = { "repl", "scopes", "breakpoints", "exceptions", "threads", "watches", "console" },
+        sections = { "repl", "scopes", "breakpoints", "exceptions", "threads", "watches" },
         default_section = "scopes",
         base_sections = {
           breakpoints = { label = "[B]reakpoints" },
@@ -149,8 +110,8 @@ return {
         position = "below",
         terminal = {
           width = 0.5,
-          position = "below",
-          start_hidden = true,
+          position = "right",
+          start_hidden = false,
         },
       },
       auto_toggle = true,
