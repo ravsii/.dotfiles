@@ -18,6 +18,16 @@ M.ignored = {
   "toggleterm",
   "trouble",
   "qf",
+
+  -- dap / dapui stuff
+  "dap-repl",
+  "dapui_breakpoints",
+  "dapui_console",
+  "dapui_scopes",
+  "dapui_stacks",
+  "dapui_watches",
+  "dap-view",
+  "dap-view-term",
 }
 
 return M
