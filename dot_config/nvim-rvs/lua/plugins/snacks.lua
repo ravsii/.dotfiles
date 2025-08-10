@@ -12,6 +12,8 @@ return {
     { "<leader>bd", function() Snacks.bufdelete() end,        desc = "Delete Buffer", },
     { "<leader>bo", function() Snacks.bufdelete.other() end,  desc = "Delete Other Buffers", },
 
+    -- lsp keymaps are in ../core/lsp.lua
+
     -- find
     { "<leader><space>", function() Snacks.picker.files() end,     desc = "Find Files (Root Dir)" },
     { "<leader>fb",      function() Snacks.picker.buffers() end,   desc = "Find Buffers" },
@@ -84,34 +86,6 @@ return {
     { "<leader>dph", function() Snacks.toggle.profiler_highlights() end, desc = "Toggle Profiler Highlights", },
   },
 
-  ---@type snacks.Config
-  opts = {
-    gitbrowse = {
-      url_patterns = {
-        ["gitlab%.ru"] = {
-          branch = "/-/tree/{branch}",
-          file = "/-/blob/{branch}/{file}#L{line_start}-L{line_end}",
-          commit = "/-/commit/{commit}",
-        },
-      },
-    },
-
-    picker = {
-      hidden = true,
-      ignored = true,
-      supports_live = true,
-    },
-
-    scroll = { enabled = false },
-    indent = { enabled = true },
-    input = { enabled = true },
-    notifier = { enabled = true },
-    scope = { enabled = true },
-    statuscolumn = { enabled = true }, -- we set this in options.lua
-    toggle = { enabled = true },
-    words = { enabled = true },
-  },
-
   config = function()
     -- LazyVim.format.snacks_toggle():map("<leader>uf")
     -- LazyVim.format.snacks_toggle(true):map("<leader>uF")
@@ -139,4 +113,33 @@ return {
       Snacks.toggle.inlay_hints():map("<leader>uh")
     end
   end,
+
+  ---@type snacks.Config
+  opts = {
+    gitbrowse = {
+      url_patterns = {
+        ["gitlab%.ru"] = {
+          branch = "/-/tree/{branch}",
+          file = "/-/blob/{branch}/{file}#L{line_start}-L{line_end}",
+          commit = "/-/commit/{commit}",
+        },
+      },
+    },
+
+    picker = {
+      hidden = true,
+      ignored = true,
+      supports_live = true,
+    },
+
+    scroll = { enabled = false },
+    indent = { enabled = true, char = "│" },
+    input = { enabled = true },
+    notify = { enabled = true },
+    notifier = { enabled = true },
+    scope = { enabled = true },
+    statuscolumn = { enabled = true },
+    toggle = { enabled = true },
+    words = { enabled = true },
+  },
 }

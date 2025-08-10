@@ -11,26 +11,26 @@ return {
   {
     "neovim/nvim-lspconfig",
     dependencies = { "folke/snacks.nvim" },
+
+    -- stylua: ignore
     keys = {
-      -- {
-      --   "<leader>cl",
-      --   function()
-      --     require("snacks").picker.lsp_config()
-      --   end,
-      --   desc = "Lsp Info",
-      -- },
-      { "gd", vim.lsp.buf.definition, desc = "Goto Definition" },
-      { "gr", vim.lsp.buf.references, desc = "References", nowait = true },
-      { "gi", vim.lsp.buf.implementation, desc = "Goto Implementation" },
-      { "gy", vim.lsp.buf.type_definition, desc = "Goto T[y]pe Definition" },
-      { "gD", vim.lsp.buf.declaration, desc = "Goto Declaration" },
-      { "K", lspHover, desc = "Hover" },
-      { "gK", vim.lsp.buf.signature_help, desc = "Signature Help" },
-      { "<c-k>", vim.lsp.buf.signature_help, mode = "i", desc = "Signature Help" },
-      { "<leader>ca", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "v" } },
-      { "<leader>cc", vim.lsp.codelens.run, desc = "Run Codelens", mode = { "n", "v" } },
-      { "<leader>cC", vim.lsp.codelens.refresh, desc = "Refresh & Display Codelens", mode = { "n" } },
-      { "<leader>cr", vim.lsp.buf.rename, desc = "Rename" },
+      { "K",          lspHover,                                             desc = "Hover" },
+      { "gd",         function() Snacks.picker.lsp_definitions() end,       desc = "Goto Definition",            noremap = true},
+      { "gD",         vim.lsp.buf.declaration,                              desc = "Goto Declaration" },
+      { "gI",         function() Snacks.picker.lsp_implementations() end,   desc = "Goto Implementation" },
+      { "gK",         vim.lsp.buf.signature_help,                           desc = "Signature Help" },
+      { "gr",         function() Snacks.picker.lsp_references() end,        desc = "References",                 noremap=true, nowait = true },
+      { "gy",         function() Snacks.picker.lsp_type_definitions() end,  desc = "Goto T[y]pe Definition" },
+      { "<c-k>",      vim.lsp.buf.signature_help,                           desc = "Signature Help",             mode = "i" },
+      { "<leader>cC", vim.lsp.codelens.refresh,                             desc = "Refresh & Display Codelens", mode = { "n" } },
+      { "<leader>ca", vim.lsp.buf.code_action,                              desc = "Code Action",                mode = { "n", "v" } },
+      { "<leader>cc", vim.lsp.codelens.run,                                 desc = "Run Codelens",               mode = { "n", "v" } },
+      { "<leader>cl", function() Snacks.picker.lsp_config() end,            desc = "Lsp Info" },
+      { "<leader>cr", vim.lsp.buf.rename,                                   desc = "Rename" },
+      { "<leader>ss", function() Snacks.picker.lsp_symbols() end,           desc = "LSP Symbols" },
+      { "<leader>sS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols" },
+      -- { "<leader>ss", function() Snacks.picker.lsp_symbols() end,          desc = "LSP Symbols" },
+      -- { "<leader>sS", function() Snacks.picker.lsp_workspace_symbols({ filter = LazyVim.config.kind_filter }) end, desc = "LSP Workspace Symbols", has = "workspace/symbols" },
     },
     init = function()
       -- Remove default keybinds
