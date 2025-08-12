@@ -39,7 +39,7 @@ return {
           statusline = ignoreFiles,
           winbar = ignoreFiles,
         },
-        globalstatus = false,
+        globalstatus = true,
       },
       sections = {
         lualine_a = {
@@ -51,7 +51,7 @@ return {
           },
         },
         lualine_b = { { "branch" } },
-        lualine_c = { { "pretty_path" } },
+        lualine_c = { { "pretty_path" }, { "diagnostics" } },
         lualine_x = { { "filetype" }, { "encoding" } },
         lualine_y = { { "location" } },
         lualine_z = { { "progress" }, { get_scrollbar } },
