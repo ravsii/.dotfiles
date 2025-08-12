@@ -1,22 +1,17 @@
+require("install")
+  :add_mason({
+    "gci",
+    "impl",
+    "gofumpt",
+    "goimports",
+    "gomodifytags",
+    "golangci-lint",
+    "gopls",
+    "golangci_lint_ls",
+  })
+  :add_treesitter({ "go", "gomod", "gowork", "gosum" })
+
 return {
-  {
-    "nvim-treesitter/nvim-treesitter",
-    opts = { ensure_installed = { "go", "gomod", "gowork", "gosum" } },
-  },
-  {
-    "mason-org/mason.nvim",
-    opts = {
-      ensure_installed = {
-        "gci",
-        "gofumpt",
-        "goimports",
-        "golangci-lint",
-        "golangci-lint-langserver",
-        "gomodifytags",
-        "impl",
-      },
-    },
-  },
   {
     "mfussenegger/nvim-dap",
     optional = true,

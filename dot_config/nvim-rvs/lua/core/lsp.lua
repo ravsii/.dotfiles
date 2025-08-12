@@ -90,9 +90,23 @@ return {
       { "mason-org/mason.nvim", opts = {} },
       "neovim/nvim-lspconfig",
     },
-    opts = {
-      automatic_enable = true,
-      ensure_installed = { "lua_ls" },
-    },
+    opts = function()
+      local i = require("install")
+      return {
+        automatic_enable = { exclude = i.lsp_enable_exclude },
+      }
+    end,
+  },
+  {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    opts = function()
+      local i = require("install")
+      i:add_mason({ "lua_ls" })
+      return {
+        ensure_installed = i.lsp,
+        auto_update = false,
+        run_on_start = true,
+      }
+    end,
   },
 }

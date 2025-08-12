@@ -5,10 +5,11 @@ return {
     "kawre/leetcode.nvim",
     build = ":TSUpdate html",
     dependencies = {
+      "nvim-treesitter/nvim-treesitter",
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
       "nvim-tree/nvim-web-devicons",
-      "3rd/image.nvim",
+      -- "3rd/image.nvim",
       "folke/snacks.nvim",
     },
     cmd = "Leet",
@@ -46,6 +47,9 @@ return {
         plugins = {
           non_standalone = false,
         },
+
+        ---@type lc.storage
+        storage = { home = vim.fn.expand("~/.leetcode-nvim") },
 
         image_support = false, ---@type boolean
 

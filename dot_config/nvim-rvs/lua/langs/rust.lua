@@ -1,17 +1,6 @@
+require("install"):add_lsp_enable_exclude({ "rust_analyzer" }):add_treesitter({ "rust" })
+
 return {
-  {
-    "nvim-treesitter/nvim-treesitter",
-    opts = { ensure_installed = { "rust" } },
-  },
-  {
-    "mason-org/mason-lspconfig.nvim",
-    opts = {
-      ensure_installed = { "rust_analyzer" },
-      -- We install it, just don't setup automatically
-      -- Since rustaceanvim does that for us
-      automatic_enable = { exclude = { "rust_analyzer" } },
-    },
-  },
   {
     "Saecki/crates.nvim",
     ft = "toml",
