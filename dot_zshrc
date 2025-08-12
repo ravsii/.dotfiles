@@ -16,5 +16,7 @@ alias ktx="kubectx"
 alias kns="kubens"
 alias k="kubectl"
 
+chezadd() { chezmoi forget $1 && chezmoi add $1 }
+
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
