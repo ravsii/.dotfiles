@@ -93,7 +93,7 @@ return {
       winbar = {
         show = true,
         sections = { "repl", "scopes", "breakpoints", "exceptions", "threads", "watches" },
-        default_section = "scopes",
+        default_section = "repl",
         base_sections = {
           breakpoints = { label = "[B]reakpoints" },
           exceptions = { label = "[E]xceptions" },
@@ -106,12 +106,12 @@ return {
         controls = { enabled = true, position = "left" },
       },
       windows = {
-        height = 0.3,
+        height = 0.4,
         position = "below",
         terminal = {
           width = 0.5,
           position = "right",
-          start_hidden = false,
+          start_hidden = true,
         },
       },
       auto_toggle = true,
@@ -120,16 +120,18 @@ return {
       local dap = require("dap")
       local dapview = require("dap-view")
       dapview.setup(opts)
-      dap.listeners.after.event_initialized["dapui_config"] = function()
+      -- Open dap-view when debugging session starts
+      dap.listeners.after["event_initialized"]["dapview_auto"] = function()
+        vim.notify("Opening UI...")
         dapview.open()
       end
 
-      -- FIXME: if you'd like to close dap on exit.
-      -- dap.listeners.before.event_terminated["dapui_config"] = function()
-      --   dapui.close({})
+      -- Optionally close when debug session ends
+      -- dap.listeners.before.event_terminated["dapview_auto"] = function()
+      --   dapview.close()
       -- end
-      -- dap.listeners.before.event_exited["dapui_config"] = function()
-      --   dapui.close({})
+      -- dap.listeners.before.event_exited["dapview_auto"] = function()
+      --   dapview.close()
       -- end
     end,
   },
