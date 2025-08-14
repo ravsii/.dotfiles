@@ -21,15 +21,15 @@ return {
       -- Add keys only on actual load
       require("which-key").add({
         { "<leader>;", group = "leetcode", icon = { icon = " " } },
-        { "<leader>;L", "<cmd>Leet lang<CR>", desc = "Change Language" },
-        { "<leader>;d", "<cmd>Leet daily<CR>", desc = "Daily Question" },
-        { "<leader>;i", "<cmd>Leet info<CR>", desc = "Question Info" },
-        { "<leader>;l", "<cmd>Leet list<CR>", desc = "List of Question" },
-        { "<leader>;m", "<cmd>Leet menu<CR>", desc = "Leetcode Menu" },
-        { "<leader>;r", "<cmd>Leet restore<CR>", desc = "Restore (preview) layout" },
-        { "<leader>;s", "<cmd>Leet submit<CR>", desc = "Submit" },
-        { "<leader>;t", "<cmd>Leet test<CR>", desc = "Test" },
-        { "<leader>;h", "<cmd>Leet hints<CR>", desc = "Hints" },
+        { "<leader>;l", "<cmd>Leet lang<CR>", desc = "change [l]anguage" },
+        { "<leader>;d", "<cmd>Leet daily<CR>", desc = "[d]aily problem" },
+        { "<leader>;i", "<cmd>Leet info<CR>", desc = "question [i]nfo" },
+        { "<leader>;p", "<cmd>Leet list<CR>", desc = "[p]problems" },
+        { "<leader>;m", "<cmd>Leet menu<CR>", desc = "[m]enu" },
+        { "<leader>;r", "<cmd>Leet restore<CR>", desc = "[r]estore layout" },
+        { "<leader>;s", "<cmd>Leet submit<CR>", desc = "[s]ubmit" },
+        { "<leader>;t", "<cmd>Leet test<CR>", desc = "[t]est" },
+        { "<leader>;h", "<cmd>Leet hints<CR>", desc = "[h]ints" },
       })
 
       -- Enable wrap for question window
