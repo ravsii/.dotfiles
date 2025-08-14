@@ -22,6 +22,7 @@ return {
   },
   {
     "mfussenegger/nvim-dap",
+    dependencies = { { "igorlfs/nvim-dap-view", opts = {} } },
     -- stylua: ignore
     keys = {
       { "<leader>dB", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = "Breakpoint Condition" },
@@ -114,7 +115,7 @@ return {
           start_hidden = true,
         },
       },
-      auto_toggle = true,
+      auto_toggle = false,
     },
     config = function(_, opts)
       local dap = require("dap")
