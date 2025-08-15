@@ -1,6 +1,7 @@
 require("install")
   :add_mason({ "marksman", "markdownlint-cli2", "markdown-toc" })
   :add_treesitter({ "markdown" })
+  :add_linters_by_ft({ markdown = { "markdownlint-cli2" } })
 
 return {
   {
