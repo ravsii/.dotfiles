@@ -1,6 +1,5 @@
 # Fonts
-# 19 is pretty much 20 with less height.
-font-size = 19
+font-size = 24
 font-family = "CaskaydiaCove Nerd Font Mono"
 font-thicken = true
 font-feature = -calt
