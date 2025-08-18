@@ -60,9 +60,9 @@ return {
         inlay_hints = {
           enabled = true,
         },
-        virtual_lines = {
-          current_line = true,
-        },
+        -- virtual_lines = {
+        --   current_line = true,
+        -- },
         virtual_text = {
           spacing = 2,
           source = "if_many",
