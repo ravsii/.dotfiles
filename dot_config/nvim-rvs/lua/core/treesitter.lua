@@ -93,4 +93,11 @@ return {
     event = "VeryLazy",
     enabled = true,
   },
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    opts = function()
+      vim.api.nvim_set_hl(0, "TreesitterContext", { link = "@comment.hint" })
+      return { mode = "cursor", max_lines = 3 }
+    end,
+  },
 }

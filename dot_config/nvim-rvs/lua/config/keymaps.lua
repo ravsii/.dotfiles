@@ -39,6 +39,12 @@ map("v", "<A-k>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", {
 map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
 map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 
+-- Clear search and stop snippet on escape
+map({ "i", "n", "s" }, "<esc>", function()
+  vim.cmd("noh")
+  return "<esc>"
+end, { expr = true, desc = "Escape and Clear hlsearch" })
+
 -- Clear search, diff update and redraw
 -- taken from runtime/lua/_editor.lua
 map(
