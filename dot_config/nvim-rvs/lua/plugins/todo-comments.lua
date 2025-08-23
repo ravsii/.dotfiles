@@ -9,7 +9,6 @@ return {
     dependencies = { "nvim-lua/plenary.nvim", "folke/snacks.nvim" },
     event = { "BufReadPost", "BufNewFile" },
     opts = {},
-    -- stylua: ignore
     keys = {
       { "<leader>st", function() Snacks.picker.todo_comments() end, desc = "TODO comments" },
     },

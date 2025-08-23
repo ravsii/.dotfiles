@@ -23,9 +23,12 @@ return {
   {
     "mfussenegger/nvim-dap",
     dependencies = { { "igorlfs/nvim-dap-view", opts = {} } },
-    -- stylua: ignore
     keys = {
-      { "<leader>dB", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = "Breakpoint Condition" },
+      {
+        "<leader>dB",
+        function() require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: ")) end,
+        desc = "Conditional breakpoint",
+      },
       { "<leader>dC", function() require("dap").run_to_cursor() end, desc = "Run to Cursor" },
       { "<leader>dO", function() require("dap").step_over() end, desc = "Step Over" },
       { "<leader>dP", function() require("dap").pause() end, desc = "Pause" },
@@ -45,7 +48,11 @@ return {
 
       -- F keybinds
       { "<F3>", function() require("dap").toggle_breakpoint() end, desc = "Toggle Breakpoint" },
-      { "<S-F3>", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = "Breakpoint Condition" },
+      {
+        "<S-F3>",
+        function() require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: ")) end,
+        desc = "Conditional breakpoint",
+      },
       { "<F4>", function() require("dap").run_to_cursor() end, desc = "Run to Cursor" },
       { "<F5>", function() require("dap").step_over() end, desc = "Step Over" },
       { "<F7>", function() require("dap").step_into() end, desc = "Step Into" },
@@ -74,16 +81,13 @@ return {
       -- setup dap config by VsCode launch.json file
       local vscode = require("dap.ext.vscode")
       local json = require("plenary.json")
-      vscode.json_decode = function(str)
-        return vim.json.decode(json.json_strip_comments(str))
-      end
+      vscode.json_decode = function(str) return vim.json.decode(json.json_strip_comments(str)) end
     end,
   },
   -- Modern, minimalistic dapui
   {
     "igorlfs/nvim-dap-view",
     dependencies = { "mfussenegger/nvim-dap" },
-    -- stylua: ignore
     keys = {
       { "<leader>du", function() require("dap-view").toggle() end, desc = "DAP View: Toggle Views" },
       { "<leader>dE", function() require("dap-view").add_expr() end, desc = "DAP View: Add Expression" },
@@ -124,12 +128,8 @@ return {
         vim.notify("Opening UI...")
         require("dap-view").open()
       end
-      dap.listeners.before.event_terminated["dapview_auto"] = function()
-        require("dap-view").close()
-      end
-      dap.listeners.before.event_exited["dapview_auto"] = function()
-        require("dap-view").close()
-      end
+      dap.listeners.before.event_terminated["dapview_auto"] = function() require("dap-view").close() end
+      dap.listeners.before.event_exited["dapview_auto"] = function() require("dap-view").close() end
     end,
   },
 
