@@ -4,7 +4,7 @@ options=(
     style=round
     width=15
     hidpi=on
-    active_color="gradient(top_left=0xFFF8B195,bottom_right=0xFF00FFFF)"
+    active_color="gradient(top_left=0xFF8360C3,bottom_right=0xFF3EBF91)"
 )
 
 borders "${options[@]}"
