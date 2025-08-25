@@ -11,7 +11,6 @@ return {
   {
     "neovim/nvim-lspconfig",
     dependencies = { "folke/snacks.nvim" },
-
     keys = {
       { "K", lspHover, desc = "Hover" },
       { "gd", function() Snacks.picker.lsp_definitions() end, desc = "Goto Definition", noremap = true },
@@ -35,7 +34,7 @@ return {
         vim.keymap.del("n", bind)
       end
     end,
-    config = function()
+    config = function(_, opts)
       local icons = require("icons")
 
       --- @type vim.diagnostic.Opts
@@ -67,13 +66,14 @@ return {
           virt_text_pos = "eol",
         },
       }
+      opts = vim.tbl_extend("force", opts, config)
 
       local completion_kinds = vim.lsp.protocol.CompletionItemKind
       for i, kind in ipairs(completion_kinds) do
         completion_kinds[i] = icons.lspIcons[kind] and icons.lspIcons[kind] .. kind or kind
       end
 
-      vim.diagnostic.config(config)
+      vim.diagnostic.config(opts)
     end,
   },
   {
