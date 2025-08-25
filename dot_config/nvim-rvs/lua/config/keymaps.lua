@@ -88,9 +88,7 @@ map("n", "]q", vim.cmd.cnext, { desc = "Next Quickfix" })
 local diagnostic_goto = function(next, severity)
   local count = next and 1 or -1
   severity = severity and vim.diagnostic.severity[severity] or nil
-  return function()
-    vim.diagnostic.jump({ count = count, severity = severity })
-  end
+  return function() vim.diagnostic.jump({ count = count, severity = severity }) end
 end
 map("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
 map("n", "]d", diagnostic_goto(true), { desc = "Next Diagnostic" })

@@ -1,18 +1,22 @@
-local lspHover = function()
-  vim.lsp.buf.hover({
-    max_width = 80,
-    max_height = 24,
-    anchor_bias = "below",
-    wrap = true,
-  })
-end
-
 return {
   {
     "neovim/nvim-lspconfig",
     dependencies = { "folke/snacks.nvim" },
     keys = {
-      { "K", lspHover, desc = "Hover" },
+      {
+        "K",
+        function()
+          vim.lsp.buf.hover({
+            close_events = {
+              "CursorMoved",
+              "BufHidden", -- fix window persisting on buffer switch (not `BufLeave` so float can be entered)
+              "LspDetach", -- fix window persisting when restarting LSP
+            },
+            focusable = true,
+          })
+        end,
+        desc = "Hover",
+      },
       { "gd", function() Snacks.picker.lsp_definitions() end, desc = "Goto Definition", noremap = true },
       { "gD", vim.lsp.buf.declaration, desc = "Goto Declaration" },
       { "gI", function() Snacks.picker.lsp_implementations() end, desc = "Goto Implementation" },
@@ -64,6 +68,13 @@ return {
           source = "if_many",
           prefix = "",
           virt_text_pos = "eol",
+        },
+
+        float = {
+          max_width = 80,
+          anchor_bias = "below",
+          wrap = true,
+          focusable = true,
         },
       }
       opts = vim.tbl_extend("force", opts, config)
