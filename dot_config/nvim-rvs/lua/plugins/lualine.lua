@@ -42,14 +42,7 @@ return {
         globalstatus = true,
       },
       sections = {
-        lualine_a = {
-          {
-            "mode",
-            fmt = function(res)
-              return res:sub(1, 1)
-            end,
-          },
-        },
+        lualine_a = { { "mode" } },
         lualine_b = { { "branch" } },
         lualine_c = { { "pretty_path" }, { "diagnostics" } },
         lualine_x = { { "filetype" }, { "encoding" } },

@@ -7,8 +7,6 @@ return {
       variant = "moon",
       styles = { transparency = true },
     },
-    init = function()
-      vim.cmd([[colorscheme rose-pine]])
-    end,
+    init = function() vim.cmd([[colorscheme rose-pine]]) end,
   },
 }
