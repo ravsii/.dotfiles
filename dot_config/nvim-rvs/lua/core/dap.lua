@@ -114,7 +114,7 @@ return {
         height = 0.4,
         position = "below",
         terminal = {
-          width = 0.01,
+          width = 0.1,
           position = "right",
           start_hidden = true,
         },
