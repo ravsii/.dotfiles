@@ -101,10 +101,32 @@ return {
     end,
     config = function(_, opts)
       require("mini.ai").setup(opts)
-      vim.schedule(function()
-        ai_whichkey(opts)
-      end)
+      vim.schedule(function() ai_whichkey(opts) end)
     end,
   },
   { "echasnovski/mini.align", version = "*", opts = {} },
+  {
+    "echasnovski/mini.surround",
+    keys = {
+
+      { "gsa", desc = "Add Surrounding", mode = { "n", "v" } },
+      { "gsd", desc = "Delete Surrounding", mode = { "n", "v" } },
+      { "gsf", desc = "Find Right Surrounding", mode = { "n", "v" } },
+      { "gsF", desc = "Find Left Surrounding", mode = { "n", "v" } },
+      { "gsh", desc = "Highlight Surrounding", mode = { "n", "v" } },
+      { "gsr", desc = "Replace Surrounding", mode = { "n", "v" } },
+      { "gsn", desc = "Update n_lines", mode = { "n", "v" } },
+    },
+    opts = {
+      mappings = {
+        add = "gsa", -- Add surrounding in Normal and Visual modes
+        delete = "gsd", -- Delete surrounding
+        find = "gsf", -- Find surrounding (to the right)
+        find_left = "gsF", -- Find surrounding (to the left)
+        highlight = "gsh", -- Highlight surrounding
+        replace = "gsr", -- Replace surrounding
+        update_n_lines = "gsn", -- Update `n_lines`
+      },
+    },
+  },
 }
