@@ -13,12 +13,21 @@ return {
           local u = require("timer.unit")
           local m = require("timer")
 
-          local break_timer = t.new(d.from(5 * u.MINUTE), "Break is over")
-          local pomodoro_timer = t.new(
-            d.from(25 * u.MINUTE),
-            "Pomodoro is over",
-            function() m.start_timer(break_timer) end
-          )
+          local break_duration = d.from(5 * u.MINUTE)
+          local break_timer = t.new(break_duration, {
+            message = "Break is over",
+            title = "Break",
+            log_level = vim.log.levels.WARN,
+            icon = "⏾",
+          })
+
+          local ppomodoro_duration = d.from(25 * u.MINUTE)
+          local pomodoro_timer = t.new(ppomodoro_duration, {
+            title = "Pomodoro",
+            message = "Pomodoro is over",
+            icon = "",
+            on_finish = function() m.start_timer(break_timer) end,
+          })
 
           m.start_timer(pomodoro_timer)
         end,
