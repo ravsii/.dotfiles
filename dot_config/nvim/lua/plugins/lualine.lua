@@ -22,44 +22,36 @@ local function get_scrollbar()
   return sbar
 end
 
+local ignoreFiles = require("files").ignored
+
 return {
   {
     "nvim-lualine/lualine.nvim",
+    dependencies = {
+      "bwpge/lualine-pretty-path",
+    },
+    ---@module 'lualine'
     opts = {
       options = {
         section_separators = { left = "", right = "" },
         component_separators = { left = "", right = "" },
+        disabled_filetypes = {
+          statusline = ignoreFiles,
+          winbar = ignoreFiles,
+        },
+        globalstatus = true,
       },
       sections = {
-        lualine_a = {
-          {
-            "mode",
-            fmt = function(res)
-              return res:sub(1, 1)
-            end,
-          },
-        },
-        lualine_b = {
-          { "branch" },
-        },
-        lualine_c = {
-          { LazyVim.lualine.pretty_path(), padding = { left = 1, right = 0 } },
-        },
-        lualine_x = {
-          { "filetype", icon_only = false, separator = "", padding = { left = 0, right = 1 } },
-        },
-        lualine_y = {
-          { "location", padding = { left = 1, right = 1 } },
-        },
-        lualine_z = {
-          { "progress", separator = " ", padding = { left = 1, right = 0 } },
-          {
-            function()
-              return get_scrollbar()
-            end,
-            padding = { left = 0, right = 1 },
-          },
-        },
+        lualine_a = { { "mode" } },
+        lualine_b = { { "branch" } },
+        lualine_c = { { "pretty_path" }, { "diagnostics" } },
+        lualine_x = { { "filetype" }, { "encoding" } },
+        lualine_y = { { "location" } },
+        lualine_z = { { require("timer.integrations.lualine").closest_timer }, { "progress" }, { get_scrollbar } },
+      },
+      winbar = {
+        lualine_c = { { "buffers" } },
+        lualine_z = { { "lsp_status" } },
       },
     },
   },
