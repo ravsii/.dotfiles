@@ -32,14 +32,16 @@ return {
       { "<leader>T", "", desc = "+timers" },
       { "<leader>Tp", pomodoro_25_5, desc = "Start Pomodoro 25/5 timer" },
       { "<leader>Ta", function() require("timer.ui").active_timers() end, desc = "Active timers" },
-      { "<leader>Td", function() require("timer.ui.dashboard").show() end, desc = "Fullscreen" },
+      { "<leader>Td", function() require("timer.ui.dashboard").show() end, desc = "Dashboard" },
       { "<leader>Tc", function() require("timer.ui").cancel() end, desc = "Cancel a timer" },
       { "<leader>TC", function() require("timer.ui").cancel_all() end, desc = "Cancel all timers" },
+      { "<leader>Tn", function() require("timer.ui").create() end, desc = "Create a new timer" },
     },
     ---@module "timer.config"
     ---@type Config
     opts = {
       persistent = true,
+      debug = false,
     },
     init = function()
       local aug = vim.api.nvim_create_augroup("TimerDevReload", { clear = true })

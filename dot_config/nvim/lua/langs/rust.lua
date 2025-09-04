@@ -1,5 +1,4 @@
 require("install"):add_lsp_enable_exclude({ "rust_analyzer" }):add_treesitter({ "rust" })
-
 return {
   {
     "Saecki/crates.nvim",
@@ -21,17 +20,29 @@ return {
   },
   {
     "mrcjkb/rustaceanvim",
-    version = vim.fn.has("nvim-0.10.0") == 0 and "^4" or false,
-    ft = { "rust" },
+    version = "^6",
+    lazy = false,
     opts = {
       server = {
         on_attach = function(_, bufnr)
-          vim.keymap.set("n", "<leader>cR", function()
-            vim.cmd.RustLsp("codeAction")
-          end, { desc = "Code Action", buffer = bufnr })
-          vim.keymap.set("n", "<leader>dr", function()
-            vim.cmd.RustLsp("debuggables")
-          end, { desc = "Rust Debuggables", buffer = bufnr })
+          vim.keymap.set(
+            "n",
+            "<leader>cR",
+            function() vim.cmd.RustLsp("codeAction") end,
+            { desc = "Code Action", buffer = bufnr }
+          )
+          vim.keymap.set(
+            "n",
+            "K", -- Override Neovim's built-in hover keymap with rustaceanvim's hover actions
+            function() vim.cmd.RustLsp({ "hover", "actions" }) end,
+            { silent = true, buffer = bufnr }
+          )
+          vim.keymap.set(
+            "n",
+            "<leader>dr",
+            function() vim.cmd.RustLsp("debuggables") end,
+            { desc = "Rust Debuggables", buffer = bufnr }
+          )
         end,
         default_settings = {
           -- rust-analyzer language server configuration
