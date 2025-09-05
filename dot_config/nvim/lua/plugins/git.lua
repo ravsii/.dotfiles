@@ -27,11 +27,10 @@ return {
       },
       debug = false,
     },
-    config = function(_, opts)
+    init = function()
       require("which-key").add({
         { "<leader>C", group = "git conflicts", icon = { icon = " " } },
       })
-      require("git-conflict").setup(opts)
     end,
   },
 }
