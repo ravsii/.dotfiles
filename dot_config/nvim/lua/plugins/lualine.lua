@@ -47,7 +47,11 @@ return {
         lualine_c = { { "pretty_path" }, { "diagnostics" } },
         lualine_x = { { "filetype" }, { "encoding" } },
         lualine_y = { { "location" } },
-        lualine_z = { { require("timer.integrations.lualine").closest_timer }, { "progress" }, { get_scrollbar } },
+        lualine_z = {
+          { function() return require("timer.integrations.lualine").closest_timer() end },
+          { "progress" },
+          { get_scrollbar },
+        },
       },
       winbar = {
         lualine_c = { { "buffers" } },

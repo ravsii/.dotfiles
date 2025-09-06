@@ -12,16 +12,9 @@ return {
       vim.fn["mkdp#util#install"]()
     end,
     keys = {
-      {
-        "<leader>cp",
-        ft = "markdown",
-        "<cmd>MarkdownPreviewToggle<cr>",
-        desc = "Markdown Preview",
-      },
+      { "<leader>cp", "<cmd>MarkdownPreviewToggle<cr>", ft = "markdown", desc = "Markdown Preview" },
     },
-    config = function()
-      vim.cmd([[do FileType]])
-    end,
+    config = function() vim.cmd([[do FileType]]) end,
   },
   {
     "stevearc/conform.nvim",
