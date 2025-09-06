@@ -1,8 +1,8 @@
 local pomodoro_25_5 = function()
-  local t = require("timer.timer")
-  local d = require("timer.duration")
-  local u = require("timer.unit")
-  local m = require("timer")
+  local t = require("timers.timer")
+  local d = require("timers.duration")
+  local u = require("timers.unit")
+  local m = require("timers.manager")
 
   local break_duration = d.from(5 * u.MINUTE)
   local break_timer = t.new(break_duration, {
