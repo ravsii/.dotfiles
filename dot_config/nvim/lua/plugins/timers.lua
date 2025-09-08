@@ -26,16 +26,17 @@ end
 return {
   {
     "ravsii/timers.nvim",
+    version = "*",
     dir = "~/dev/OpenSource/timers.nvim/",
     dev = true,
     keys = {
       { "<leader>T", "", desc = "+timers" },
       { "<leader>Tp", pomodoro_25_5, desc = "Start Pomodoro 25/5 timer" },
       { "<leader>Ta", function() require("timers.ui").active_timers() end, desc = "Active timers" },
-      { "<leader>Td", function() require("timers.ui.dashboard").show() end, desc = "Dashboard" },
+      { "<leader>Td", function() require("timers.ui").dashboard() end, desc = "Dashboard" },
+      { "<leader>Tn", function() require("timers.ui").create_timer() end, desc = "New timer" },
       { "<leader>Tc", function() require("timers.ui").cancel() end, desc = "Cancel a timer" },
       { "<leader>TC", function() require("timers.ui").cancel_all() end, desc = "Cancel all timers" },
-      { "<leader>Tn", function() require("timers.ui").create() end, desc = "Create a new timer" },
     },
     ---@module "timers.config"
     ---@type Config
@@ -47,14 +48,14 @@ return {
       local aug = vim.api.nvim_create_augroup("TimerDevReload", { clear = true })
       vim.api.nvim_create_autocmd("BufWritePost", {
         group = aug,
-        pattern = vim.fn.expand("~") .. "/dev/OpenSource/timer.nvim/**/*.lua",
+        pattern = vim.fn.expand("~") .. "/dev/OpenSource/timers.nvim/**/*.lua",
         callback = function(args)
-          local modname = args.file:match("timer.nvim/(.*)%.lua$")
+          local modname = args.file:match("timers.nvim/(.*)%.lua$")
           if modname then
             modname = modname:gsub("/", ".") -- convert path to module name
-            package.loaded["timer"] = nil
+            package.loaded["timers"] = nil
           end
-          vim.cmd("Lazy reload timer.nvim")
+          vim.cmd("Lazy reload timers.nvim")
         end,
       })
     end,
