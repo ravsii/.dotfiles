@@ -26,7 +26,6 @@ end
 return {
   {
     "ravsii/timers.nvim",
-    version = "*",
     dir = "~/dev/OpenSource/timers.nvim/",
     dev = true,
     keys = {
