@@ -44,8 +44,8 @@ return {
       },
       sections = {
         lualine_a = { { "mode" } },
-        lualine_b = { { "branch" }, { "pretty_path" } },
-        lualine_c = { { "diagnostics" }, { "lsp_status" } },
+        lualine_b = { { "branch" } },
+        lualine_c = { { "pretty_path" }, { "diagnostics" }, { "lsp_status" } },
         lualine_x = { { "filetype" }, { "encoding" } },
         lualine_y = { { "location" } },
         lualine_z = {
