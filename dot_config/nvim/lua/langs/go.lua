@@ -1,6 +1,5 @@
 require("install")
   :add_mason({
-    "gci",
     "impl",
     "gofumpt",
     "goimports",
@@ -42,24 +41,10 @@ return {
     opts = function(_, opts)
       -- formattag should be the first source as it adds extra newline at the
       -- end of the file, thus breaking gofumpt linting
-      opts.formatters_by_ft.go = { "gofumpt", "formattag", "goimports", "gci" }
+      opts.formatters_by_ft.go = { "formattag", "gofumpt", "goimports" }
       opts.formatters.formattag = {
         command = "formattag",
         stdin = true,
-      }
-      opts.formatters.gci = {
-        command = "gci",
-        stdin = true,
-        args = {
-          "print",
-          "--custom-order",
-          "--section",
-          "standard",
-          "--section",
-          "localmodule",
-          "--section",
-          "default",
-        },
       }
     end,
   },
