@@ -3,8 +3,12 @@ require("install"):add_mason({ "stylua" })
 return {
   {
     "nvim-neotest/neotest",
-    dependencies = { "HiPhish/neotest-busted" },
-    opts = { adapters = { ["neotest-busted"] = {} } },
+    dependencies = {
+      "nvim-neotest/neotest-plenary",
+    },
+    opts = { adapters = {
+      ["neotest-plenary"] = {},
+    } },
   },
   {
     "mfussenegger/nvim-dap",

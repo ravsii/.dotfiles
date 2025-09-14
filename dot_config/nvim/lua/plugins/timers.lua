@@ -30,12 +30,14 @@ return {
     dev = true,
     keys = {
       { "<leader>T", "", desc = "+timers" },
-      { "<leader>Tp", pomodoro_25_5, desc = "Start Pomodoro 25/5 timer" },
+      { "<leader>TP", pomodoro_25_5, desc = "Start Pomodoro 25/5 timer" },
       { "<leader>Ta", function() require("timers.ui").active_timers() end, desc = "Active timers" },
       { "<leader>Td", function() require("timers.ui").dashboard() end, desc = "Dashboard" },
       { "<leader>Tn", function() require("timers.ui").create_timer() end, desc = "New timer" },
       { "<leader>Tc", function() require("timers.ui").cancel() end, desc = "Cancel a timer" },
       { "<leader>TC", function() require("timers.ui").cancel_all() end, desc = "Cancel all timers" },
+      { "<leader>Tr", function() require("timers.ui").resume() end, desc = "Resume a timer" },
+      { "<leader>Tp", function() require("timers.ui").pause() end, desc = "Pause a timer" },
     },
     ---@module "timers.config"
     ---@type Config

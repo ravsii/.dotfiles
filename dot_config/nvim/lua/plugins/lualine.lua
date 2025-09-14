@@ -39,11 +39,11 @@ return {
           statusline = ignoreFiles,
           winbar = ignoreFiles,
         },
-        globalstatus = false,
+        globalstatus = true,
         theme = "rose-pine",
       },
       sections = {
-        lualine_a = { { "mode" } },
+        lualine_a = { { "mode", fmt = function(res) return res:sub(1, 1) end } },
         lualine_b = { { "branch" } },
         lualine_c = { { "pretty_path" }, { "diagnostics" }, { "lsp_status" } },
         lualine_x = { { "filetype" }, { "encoding" } },
