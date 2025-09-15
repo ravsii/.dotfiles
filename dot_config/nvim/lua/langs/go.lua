@@ -1,9 +1,10 @@
 require("install")
   :add_mason({
-    "impl",
-    "gopls",
     "gofumpt",
+    "goimports",
     "golangci_lint_ls",
+    "gopls",
+    "impl",
   })
   :add_treesitter({ "go", "gomod", "gowork", "gosum" })
 
@@ -40,7 +41,7 @@ return {
     opts = function(_, opts)
       -- formattag should be the first source as it adds extra newline at the
       -- end of the file, thus breaking gofumpt linting
-      opts.formatters_by_ft.go = { "formattag", "gofumpt" }
+      opts.formatters_by_ft.go = { "goimpots", "formattag", "gofumpt" }
       opts.formatters.formattag = {
         command = "formattag",
         stdin = true,
