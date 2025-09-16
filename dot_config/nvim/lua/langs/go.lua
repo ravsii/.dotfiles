@@ -41,7 +41,7 @@ return {
     opts = function(_, opts)
       -- formattag should be the first source as it adds extra newline at the
       -- end of the file, thus breaking gofumpt linting
-      opts.formatters_by_ft.go = { "goimpots", "formattag", "gofumpt" }
+      opts.formatters_by_ft.go = { "goimports", "formattag", "gofumpt" }
       opts.formatters.formattag = {
         command = "formattag",
         stdin = true,
