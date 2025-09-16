@@ -51,6 +51,7 @@ window-padding-color = background
 # Keybinds
 # Config-related
 keybind = cmd+r=reload_config
+keybind = ctrl+shift+t=prompt_surface_title
 
 # Splits
 keybind = ctrl+shift+\=new_split:right
