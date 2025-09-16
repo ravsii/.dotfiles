@@ -1,9 +1,6 @@
 return {
   "smjonas/inc-rename.nvim",
-  cmd = "IncRename",
-  opts = {
-    preview_empty_name = true,
-  },
+  opts = { preview_empty_name = true },
   keys = {
     {
       "<leader>cr",

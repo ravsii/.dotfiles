@@ -23,6 +23,16 @@ local pomodoro_25_5 = function()
   m.start_timer(pomodoro_timer)
 end
 
+local leetcode_timer = function()
+  require("timers.manager").start_timer(
+    require("timers.timer").new(require("timers.duration").from(10 * require("timers.unit").MINUTE), {
+      title = "Leetcode Timer",
+      message = "See solution you idiot",
+      icon = "",
+    })
+  )
+end
+
 return {
   {
     "ravsii/timers.nvim",
@@ -31,6 +41,7 @@ return {
     keys = {
       { "<leader>T", "", desc = "+timers" },
       { "<leader>TP", pomodoro_25_5, desc = "Start Pomodoro 25/5 timer" },
+      { "<leader>TL", leetcode_timer, desc = "Start Leetcode timer" },
       { "<leader>Ta", function() require("timers.ui").active_timers() end, desc = "Active timers" },
       { "<leader>Td", function() require("timers.ui").dashboard() end, desc = "Dashboard" },
       { "<leader>Tn", function() require("timers.ui").create_timer() end, desc = "New timer" },
