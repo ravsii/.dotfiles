@@ -27,7 +27,7 @@ shell-integration = zsh
 shell-integration-features = cursor,title
 
 # Theme
-theme = rose-pine-moon
+theme = "Rose Pine Moon"
 unfocused-split-opacity = 0.95
 
 # Icon
@@ -53,14 +53,14 @@ window-padding-color = background
 keybind = cmd+r=reload_config
 
 # Splits
-keybind = ctrl+shift+physical:\=new_split:right
+keybind = ctrl+shift+\=new_split:right
 keybind = ctrl+shift+enter=new_split:down
 
 # Split Navigation
-keybind = ctrl+shift+physical:h=goto_split:left
-keybind = ctrl+shift+physical:j=goto_split:bottom
-keybind = ctrl+shift+physical:k=goto_split:top
-keybind = ctrl+shift+physical:l=goto_split:right
+keybind = ctrl+shift+h=goto_split:left
+keybind = ctrl+shift+j=goto_split:bottom
+keybind = ctrl+shift+k=goto_split:top
+keybind = ctrl+shift+l=goto_split:right
 
 # Split Resizing
 keybind = cmd+alt+left=resize_split:left,20
@@ -69,5 +69,5 @@ keybind = cmd+alt+up=resize_split:up,20
 keybind = cmd+alt+right=resize_split:right,20
 
 # Other split actions
-keybind = ctrl+shift+physical:e=equalize_splits
-keybind = ctrl+shift+physical:w=close_surface
+keybind = ctrl+shift+e=equalize_splits
+keybind = ctrl+shift+w=close_surface
