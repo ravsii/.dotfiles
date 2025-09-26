@@ -26,7 +26,7 @@ return {
   {
     "nvim-neotest/neotest",
     optional = true,
-    dependencies = { "fredrikaverpil/neotest-golang" },
+    dependencies = { "fredrikaverpil/neotest-golang", tag = "v1.15.1" },
     opts = {
       adapters = {
         ["neotest-golang"] = {
