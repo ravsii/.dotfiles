@@ -1,5 +1,5 @@
 # Fonts
-font-size = 24
+font-size = 18
 font-family = "CaskaydiaCove Nerd Font Mono"
 font-thicken = true
 font-feature = -calt
@@ -38,20 +38,23 @@ macos-icon-frame = plastic
 background-opacity = 0.9
 background-blur = true
 macos-titlebar-proxy-icon = visible
-macos-titlebar-style = tabs
+macos-titlebar-style = native
 window-decoration = true
-window-height = 24
+window-height = 25
 window-width = 80
 
 # Padding
 window-padding-x = 5
 window-padding-y = 5
+window-padding-balance = true
 window-padding-color = background
 
 # Keybinds
 # Config-related
 keybind = cmd+r=reload_config
 keybind = ctrl+shift+t=prompt_surface_title
+keybind = global:cmd+backquote=toggle_quick_terminal
+keybind = cmd+p=toggle_command_palette
 
 # Splits
 keybind = ctrl+shift+\=new_split:right
