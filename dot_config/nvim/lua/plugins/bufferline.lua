@@ -49,12 +49,8 @@ return {
           },
         },
         highlights = {
-          buffer_visible = {
-            bg = palette.highlight_low,
-          },
           buffer_selected = {
-            fg = palette.iris,
-            bg = palette.highlight_low,
+            fg = palette.foam,
           },
         },
       }
