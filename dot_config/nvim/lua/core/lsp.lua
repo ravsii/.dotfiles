@@ -54,19 +54,19 @@ return {
         update_in_insert = true,
         underline = true,
         severity_sort = true,
-        -- Enable this to enable the builtin LSP inlay hints on Neovim >= 0.10.0
-        -- Be aware that you also will need to properly configure your LSP server to
-        -- provide the inlay hints.
+        -- Enable this to enable the builtin LSP inlay hints on Neovim>=0.10
+        -- Be aware that you also will need to properly configure your LSP
+        -- server to provide the inlay hints.
         inlay_hints = {
           enabled = true,
         },
-        -- virtual_lines = {
-        --   current_line = true,
-        -- },
+        virtual_lines = {
+          current_line = true,
+        },
         virtual_text = {
           spacing = 2,
           source = "if_many",
-          prefix = "",
+          prefix = "",
           virt_text_pos = "eol",
         },
 
