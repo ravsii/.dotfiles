@@ -17,6 +17,7 @@ adjust-cursor-thickness = 1
 cursor-invert-fg-bg = true
 macos-option-as-alt = true
 mouse-hide-while-typing = true
+mouse-scroll-multiplier = 0.5
 
 # Ghostty-related
 auto-update = check
