@@ -54,21 +54,24 @@ return {
         update_in_insert = true,
         underline = true,
         severity_sort = true,
-        -- Enable this to enable the builtin LSP inlay hints on Neovim>=0.10
-        -- Be aware that you also will need to properly configure your LSP
-        -- server to provide the inlay hints.
+        -- Enable this to enable the builtin LSP inlay hints on Neovim >= 0.10.0
+        -- Be aware that you also will need to properly configure your LSP server to
+        -- provide the inlay hints.
         inlay_hints = {
           enabled = true,
         },
-        virtual_lines = {
-          current_line = true,
-        },
-        virtual_text = {
-          spacing = 2,
-          source = "if_many",
-          prefix = "",
-          virt_text_pos = "eol",
-        },
+        virtual_lines = false,
+        virtual_text = false,
+        -- virtual_lines = {
+        --   current_line = true,
+        --   source = "if_many",
+        --   prefix = "",
+        -- },
+        -- virtual_text = {
+        --   spacing = 2,
+        --   source = "if_many",
+        --   virt_text_pos = "eol",
+        -- },
 
         float = {
           max_width = 80,
@@ -116,5 +119,35 @@ return {
         run_on_start = true,
       }
     end,
+  },
+  {
+    "rachartier/tiny-inline-diagnostic.nvim",
+    event = "VeryLazy",
+    priority = 1000,
+    opts = {
+      preset = "modern",
+      transparent_bg = false,
+      transparent_cursorline = true,
+      options = {
+        show_source = {
+          enabled = true,
+          if_many = true,
+        },
+        softwrap = 30,
+        use_icons_from_diagnostic = true,
+        set_arrow_to_diag_color = false,
+        add_messages = true,
+        multilines = {
+          enabled = true,
+          always_show = false,
+          trim_whitespaces = true,
+        },
+        overflow = {
+          mode = "wrap",
+          padding = 2,
+        },
+        show_all_diags_on_cursorline = false,
+      },
+    },
   },
 }
