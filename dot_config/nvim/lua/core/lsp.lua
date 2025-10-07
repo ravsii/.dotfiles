@@ -124,30 +124,37 @@ return {
     "rachartier/tiny-inline-diagnostic.nvim",
     event = "VeryLazy",
     priority = 1000,
-    opts = {
-      preset = "modern",
-      transparent_bg = false,
-      transparent_cursorline = true,
-      options = {
-        show_source = {
-          enabled = true,
-          if_many = true,
+    opts = function()
+      local palette = require("rose-pine.palette")
+
+      return {
+        preset = "modern",
+        transparent_bg = false,
+        transparent_cursorline = true,
+        hi = {
+          mixing_color = palette.surface,
         },
-        softwrap = 30,
-        use_icons_from_diagnostic = true,
-        set_arrow_to_diag_color = false,
-        add_messages = true,
-        multilines = {
-          enabled = true,
-          always_show = false,
-          trim_whitespaces = true,
+        options = {
+          show_source = {
+            enabled = true,
+            if_many = false,
+          },
+          softwrap = 30,
+          use_icons_from_diagnostic = false,
+          set_arrow_to_diag_color = false,
+          add_messages = true,
+          multilines = {
+            enabled = true,
+            always_show = false,
+            trim_whitespaces = true,
+          },
+          overflow = {
+            mode = "wrap",
+            padding = 2,
+          },
+          show_all_diags_on_cursorline = false,
         },
-        overflow = {
-          mode = "wrap",
-          padding = 2,
-        },
-        show_all_diags_on_cursorline = false,
-      },
-    },
+      }
+    end,
   },
 }
