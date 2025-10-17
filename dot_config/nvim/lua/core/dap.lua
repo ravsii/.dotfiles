@@ -98,7 +98,7 @@ return {
       winbar = {
         show = true,
         sections = { "repl", "scopes", "breakpoints", "exceptions", "threads", "watches" },
-        default_section = "scopes",
+        default_section = "repl",
         base_sections = {
           breakpoints = { label = "[B]reakpoints" },
           exceptions = { label = "[E]xceptions" },
