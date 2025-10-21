@@ -84,6 +84,11 @@ return {
       vscode.json_decode = function(str) return vim.json.decode(json.json_strip_comments(str)) end
     end,
   },
+  {
+    "ravsii/nvim-dap-envfile",
+    dependencies = { "mfussenegger/nvim-dap" },
+    opts = {},
+  },
   -- Modern, minimalistic dapui
   {
     "igorlfs/nvim-dap-view",
