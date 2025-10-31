@@ -35,6 +35,10 @@ map("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move Up" })
 map("v", "<A-j>", ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv", { desc = "Move Down" })
 map("v", "<A-k>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", { desc = "Move Up" })
 
+-- Sort in visual mode
+map("v", "<leader>s", ":'<,'>sort<CR>", { noremap = true, silent = true, desc = "Sort selection" })
+map("v", "<leader>S", ":'<,'>sort!<CR>", { noremap = true, silent = true, desc = "Reverse sort selection" })
+
 -- buffers
 map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
 map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })

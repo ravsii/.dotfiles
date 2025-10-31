@@ -42,7 +42,7 @@ return {
       "<leader>sw",
       function() Snacks.picker.grep_word() end,
       desc = "Visual selection or word (Root Dir)",
-      mode = { "n", "x" },
+      mode = { "n" },
     },
 
     -- search

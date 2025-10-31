@@ -16,7 +16,7 @@ return {
             },
           })
         end,
-        mode = { "n", "v" },
+        mode = { "n" },
         desc = "Search and Replace",
       },
     },
