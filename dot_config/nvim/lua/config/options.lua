@@ -6,7 +6,8 @@ vim.g.maplocalleader = "\\"
 
 opt.autowrite = true
 opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus" -- Sync with system clipboard
-opt.colorcolumn = "80,120"
+opt.colorcolumn = "81,120"
+opt.textwidth = 80
 opt.completeopt = "menu,menuone,noselect"
 opt.conceallevel = 0
 opt.confirm = true
@@ -58,7 +59,6 @@ opt.splitright = true -- Put new windows right of current
 
 opt.tabstop = 2 -- Number of spaces tabs count for
 opt.termguicolors = true -- True color support
-opt.textwidth = 79
 opt.timeoutlen = vim.g.vscode and 1000 or 300 -- Lower than default (1000) to quickly trigger which-key
 opt.undofile = true
 opt.undolevels = 10000
