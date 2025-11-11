@@ -68,4 +68,38 @@ return {
       { "<leader>td", function() require("neotest").run.run({ strategy = "dap" }) end, desc = "Debug Nearest" },
     },
   },
+  {
+    "andythigpen/nvim-coverage",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    version = "*",
+    keys = {
+      { "<leader>tc", "<nop>", desc = "+coverage" },
+      { "<leader>tcc", ":Coverage<cr>", desc = "Show coverage (input path)" },
+      {
+        "<leader>tcC",
+        function()
+          local path = vim.fn.input("Enter coverage path: ")
+          if path ~= "" then
+            vim.cmd("Coverage " .. path)
+          else
+            vim.cmd("Coverage")
+          end
+        end,
+        desc = "Show coverage (input path)",
+      },
+      { "<leader>tcs", ":CoverageShow<CR>", desc = "Show coverage signs" },
+      { "<leader>tch", ":CoverageHide<CR>", desc = "Hide coverage signs" },
+      { "<leader>tct", ":CoverageToggle<CR>", desc = "Toggle coverage signs" },
+      { "<leader>tcd", ":CoverageClear<CR>", desc = "Delete coverage cache" },
+      { "<leader>tcm", ":CoverageSummary<CR>", desc = "Coverage summary" },
+    },
+    opts = {
+      auto_reload = true,
+      signs = {
+        covered = { text = "+" },
+        uncovered = { text = "-" },
+        pertial = { text = "~" },
+      },
+    },
+  },
 }
