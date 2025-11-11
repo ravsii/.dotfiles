@@ -98,7 +98,7 @@ return {
       signs = {
         covered = { text = "+" },
         uncovered = { text = "-" },
-        pertial = { text = "~" },
+        partial = { text = "~" },
       },
     },
   },
