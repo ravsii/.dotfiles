@@ -90,79 +90,71 @@ return {
     opts = {},
   },
   -- Modern, minimalistic dapui
-  {
-    "igorlfs/nvim-dap-view",
-    dependencies = { "mfussenegger/nvim-dap" },
-    keys = {
-      { "<leader>du", function() require("dap-view").toggle() end, desc = "DAP View: Toggle Views" },
-      { "<leader>dE", function() require("dap-view").add_expr() end, desc = "DAP View: Add Expression" },
-    },
-    ---@module 'dap-view'
-    ---@type dapview.Config
-    opts = {
-      winbar = {
-        show = true,
-        sections = { "repl", "scopes", "breakpoints", "exceptions", "threads", "watches" },
-        default_section = "repl",
-        base_sections = {
-          breakpoints = { label = "[B]reakpoints" },
-          exceptions = { label = "[E]xceptions" },
-          watches = { label = "[W]atches" },
-          threads = { label = "[T]hreads" },
-          repl = { label = "[R]EPL" },
-          -- console = { label = "[C]onsole" },
-          scopes = { label = "Variable[S]" },
-        },
-        controls = { enabled = true, position = "left" },
-      },
-      windows = {
-        height = 0.4,
-        position = "below",
-        terminal = {
-          width = 0.1,
-          position = "right",
-          start_hidden = true,
-        },
-      },
-      auto_toggle = true,
-    },
-    init = function()
-      local dap = require("dap")
-      -- Open dap-view when debugging session starts
-      dap.listeners.after["event_initialized"]["dapview_auto"] = function()
-        vim.notify("Opening UI...")
-        require("dap-view").open()
-      end
-      dap.listeners.before.event_terminated["dapview_auto"] = function() require("dap-view").close() end
-      dap.listeners.before.event_exited["dapview_auto"] = function() require("dap-view").close() end
-    end,
-  },
-
-  -- Usual DapUI, for those who interested.
   -- {
-  --   "rcarriga/nvim-dap-ui",
-  --   dependencies = { "nvim-neotest/nvim-nio" },
-  --   -- stylua: ignore
+  --   "igorlfs/nvim-dap-view",
+  --   dependencies = { "mfussenegger/nvim-dap" },
   --   keys = {
-  --     { "<leader>du", function() require("dapui").toggle({ }) end, desc = "Dap UI" },
-  --     { "<leader>de", function() require("dapui").eval() end, desc = "Eval", mode = {"n", "v"} },
+  --     { "<leader>du", function() require("dap-view").toggle() end, desc = "DAP View: Toggle Views" },
+  --     { "<leader>dE", function() require("dap-view").add_expr() end, desc = "DAP View: Add Expression" },
   --   },
-  --   opts = {},
-  --   config = function(_, opts)
+  --   ---@module 'dap-view'
+  --   ---@type dapview.Config
+  --   opts = {
+  --     winbar = {
+  --       show = true,
+  --       sections = { "repl", "scopes", "breakpoints", "exceptions", "threads", "watches" },
+  --       default_section = "repl",
+  --       base_sections = {
+  --         breakpoints = { label = "[B]reakpoints" },
+  --         exceptions = { label = "[E]xceptions" },
+  --         watches = { label = "[W]atches" },
+  --         threads = { label = "[T]hreads" },
+  --         repl = { label = "[R]EPL" },
+  --         -- console = { label = "[C]onsole" },
+  --         scopes = { label = "Variable[S]" },
+  --       },
+  --       controls = { enabled = true, position = "left" },
+  --     },
+  --     windows = {
+  --       height = 0.4,
+  --       position = "below",
+  --       terminal = {
+  --         width = 0.1,
+  --         position = "right",
+  --         start_hidden = true,
+  --       },
+  --     },
+  --     auto_toggle = true,
+  --   },
+  --   init = function()
   --     local dap = require("dap")
-  --     local dapui = require("dapui")
-  --     dapui.setup(opts)
-  --     dap.listeners.after.event_initialized["dapui_config"] = function()
-  --       dapui.open({})
+  --     -- Open dap-view when debugging session starts
+  --     dap.listeners.after["event_initialized"]["dapview_auto"] = function()
+  --       vim.notify("Opening UI...")
+  --       require("dap-view").open()
   --     end
-  --
-  --     -- FIXME: if you'd like to close dap on exit.
-  --     -- dap.listeners.before.event_terminated["dapui_config"] = function()
-  --     --   dapui.close({})
-  --     -- end
-  --     -- dap.listeners.before.event_exited["dapui_config"] = function()
-  --     --   dapui.close({})
-  --     -- end
+  --     dap.listeners.before.event_terminated["dapview_auto"] = function() require("dap-view").close() end
+  --     dap.listeners.before.event_exited["dapview_auto"] = function() require("dap-view").close() end
   --   end,
   -- },
+
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = { "nvim-neotest/nvim-nio" },
+    -- stylua: ignore
+    keys = {
+      { "<leader>du", function() require("dapui").toggle({ }) end, desc = "Dap UI" },
+      { "<leader>de", function() require("dapui").eval() end, desc = "Eval", mode = {"n", "v"} },
+    },
+    opts = {},
+    config = function(_, opts)
+      local dap = require("dap")
+      local dapui = require("dapui")
+      dapui.setup(opts)
+      dap.listeners.after.event_initialized["dapui_config"] = function() dapui.open({}) end
+
+      dap.listeners.before.event_terminated["dapui_config"] = function() dapui.close({}) end
+      dap.listeners.before.event_exited["dapui_config"] = function() dapui.close({}) end
+    end,
+  },
 }

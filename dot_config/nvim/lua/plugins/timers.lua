@@ -36,8 +36,6 @@ end
 return {
   {
     "ravsii/timers.nvim",
-    dir = "~/dev/OpenSource/timers.nvim/",
-    dev = true,
     keys = {
       { "<leader>T", "", desc = "+timers" },
       { "<leader>TP", pomodoro_25_5, desc = "Start Pomodoro 25/5 timer" },
