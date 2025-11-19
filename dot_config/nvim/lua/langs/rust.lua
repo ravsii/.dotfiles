@@ -1,4 +1,5 @@
 require("install"):add_lsp_enable_exclude({ "rust_analyzer" }):add_treesitter({ "rust" })
+
 return {
   {
     "Saecki/crates.nvim",
@@ -108,5 +109,18 @@ return {
         ["rustaceanvim.neotest"] = {},
       },
     },
+  },
+  {
+    "stevearc/conform.nvim",
+    opts = function(_, opts)
+      opts.formatters_by_ft.rust = vim.tbl_deep_extend("keep", {}, { "dioxus_fmt" })
+      opts.formatters = {
+        dioxus_fmt = {
+          command = "dx",
+          args = { "fmt", "--file", "$FILENAME" },
+          stdin = false,
+        },
+      }
+    end,
   },
 }
