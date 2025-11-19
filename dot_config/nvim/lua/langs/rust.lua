@@ -113,7 +113,7 @@ return {
   {
     "stevearc/conform.nvim",
     opts = function(_, opts)
-      opts.formatters_by_ft.rust = vim.tbl_deep_extend("keep", {}, { "dioxus_fmt" })
+      opts.formatters_by_ft.rust = vim.tbl_deep_extend("keep", { lsp_format = "last" }, { "dioxus_fmt" })
       opts.formatters = {
         dioxus_fmt = {
           command = "dx",
