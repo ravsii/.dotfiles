@@ -74,7 +74,7 @@ return {
     version = "*",
     keys = {
       { "<leader>tc", "<nop>", desc = "+coverage" },
-      { "<leader>tcc", ":Coverage<cr>", desc = "Show coverage (input path)" },
+      { "<leader>tcc", ":Coverage<cr>", desc = "Show coverage" },
       {
         "<leader>tcC",
         function()
