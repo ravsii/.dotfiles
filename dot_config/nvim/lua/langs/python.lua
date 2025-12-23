@@ -1,0 +1,48 @@
+require("install"):add_mason({ "basedpyright", "ruff", "black" }):add_treesitter({ "python", "ninja", "rst" })
+
+return {
+  {
+    "mfussenegger/nvim-dap",
+    dependencies = {
+      "mfussenegger/nvim-dap-python",
+      config = function() require("dap-python").setup("debugpy-adapter") end,
+    },
+  },
+  {
+    "jay-babu/mason-nvim-dap.nvim",
+    optional = true,
+    opts = {
+      handlers = {
+        python = function() end,
+      },
+    },
+  },
+  {
+    "nvim-neotest/neotest",
+    dependencies = { "nvim-neotest/neotest-python" },
+    opts = { adapters = { ["neotest-python"] = {} } },
+  },
+  {
+    "linux-cultist/venv-selector.nvim",
+    cmd = "VenvSelect",
+    opts = {
+      options = {
+        notify_user_on_venv_activation = true,
+      },
+    },
+    ft = "python",
+    keys = { { "<leader>cv", "<cmd>:VenvSelect<cr>", desc = "Select VirtualEnv", ft = "python" } },
+  },
+  {
+    "stevearc/conform.nvim",
+    opts = function(_, opts)
+      -- formattag should be the first source as it adds extra newline at the
+      -- end of the file, thus breaking gofumpt linting
+      opts.formatters_by_ft.go = { "goimports", "formattag", "gofumpt" }
+      opts.formatters.formattag = {
+        command = "formattag",
+        stdin = true,
+      }
+    end,
+  },
+}
