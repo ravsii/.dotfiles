@@ -9,7 +9,7 @@ return {
     --               "1" for Fcitx
     --               "xkb:us::eng" for ibus
     default_im_select = "com.apple.keylayout.ABC",
-    default_command = "im-select",
+    -- default_command = "im-select",
     set_default_events = { "VimEnter", "FocusGained", "InsertLeave", "CmdlineLeave" },
     set_previous_events = {},
     async_switch_im = true,
