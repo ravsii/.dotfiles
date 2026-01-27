@@ -2,6 +2,7 @@ require("install")
   :add_mason({
     "gofumpt",
     "goimports",
+    "golangci-lint",
     "golangci_lint_ls",
     "gopls",
     "impl",
