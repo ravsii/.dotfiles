@@ -123,9 +123,10 @@ return {
   opts = {
     gitbrowse = {
       url_patterns = {
-        ["gitlab%.ru"] = {
+        ["gitlab%..+%.ru"] = {
           branch = "/-/tree/{branch}",
-          file = "/-/blob/{branch}/{file}#L{line_start}-L{line_end}",
+          file = "/-/blob/{branch}/{file}#L{line_start}-{line_end}",
+          permalink = "/-/blob/{commit}/{file}#L{line_start}-{line_end}",
           commit = "/-/commit/{commit}",
         },
       },
