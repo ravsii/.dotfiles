@@ -16,7 +16,6 @@ vim.lsp.config.gopls = {
   },
 }
 
-
 return {
   {
     "mfussenegger/nvim-dap",
