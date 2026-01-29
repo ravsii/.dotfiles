@@ -6,6 +6,20 @@ return {
     { "<leader>:", function() Snacks.picker.command_history() end, desc = "Command History" },
     { "<leader>n", function() Snacks.picker.notifications() end, desc = "Notification History" },
 
+    -- explorer
+    {
+      "<leader>fe",
+      function() Snacks.explorer({ cwd = vim.uv.cwd() }) end,
+      desc = "Explorer Snacks (root dir)",
+    },
+    {
+      "<leader>fE",
+      function() Snacks.explorer() end,
+      desc = "Explorer Snacks (cwd)",
+    },
+    { "<leader>e", "<leader>fe", desc = "Explorer Snacks (root dir)", remap = true },
+    { "<leader>E", "<leader>fE", desc = "Explorer Snacks (cwd)", remap = true },
+
     -- buffers
     { "<leader>,", function() Snacks.picker.buffers() end, desc = "Buffers" },
     { "<leader>bd", function() Snacks.bufdelete() end, desc = "Delete Buffer" },
@@ -114,6 +128,10 @@ return {
     { "<c-/>", function() Snacks.terminal(nil) end, desc = "Terminal (Root Dir)", mode = "n" },
     { "<c-_>", function() Snacks.terminal(nil) end, desc = "which_key_ignore", mode = "n" },
 
+    -- Scratch buffer
+    { "<leader>.", function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
+    { "<leader>S", function() Snacks.scratch.select() end, desc = "Select Scratch Buffer" },
+
     -- Profiler
     { "<leader>dpp", function() Snacks.toggle.profiler() end, desc = "Toggle Profiler" },
     { "<leader>dph", function() Snacks.toggle.profiler_highlights() end, desc = "Toggle Profiler Highlights" },
@@ -121,6 +139,14 @@ return {
 
   ---@type snacks.Config
   opts = {
+    bigfile = { enabled = true },
+    quickfile = { enabled = true },
+
+    explorer = {
+      replace_netrw = true,
+      trash = true,
+    },
+
     gitbrowse = {
       url_patterns = {
         ["gitlab%..+%.ru"] = {
@@ -139,10 +165,7 @@ return {
     },
 
     scroll = { enabled = false },
-    indent = {
-      enabled = true,
-      char = "│",
-    },
+    indent = { enabled = true, char = "│" },
     notify = { enabled = true },
     notifier = { enabled = true },
     scope = { enabled = true },
