@@ -1,6 +1,7 @@
 require("install")
   :add_mason({
     "gofumpt",
+    "delve",
     "goimports",
     "golangci-lint",
     "golangci_lint_ls",
@@ -14,6 +15,7 @@ vim.lsp.config.gopls = {
     gopls = { analyses = { composites = false, fieldalignment = false } },
   },
 }
+
 
 return {
   {
@@ -33,6 +35,7 @@ return {
         ["neotest-golang"] = {
           go_test_args = { "-race", "-count=1" },
           dap_go_enabled = true, -- requires leoluz/nvim-dap-go
+          warn_test_name_dupes = false,
         },
       },
     },
