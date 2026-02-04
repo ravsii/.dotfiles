@@ -7,6 +7,7 @@ export CLICOLOR=1
 # If you come from bash you might have to change your $PATH.
 export PATH=$PATH:$(go env GOPATH)/bin
 export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/bin
 
 alias vi="nvim"
 alias ovi="NVIM_APPNAME=nvim.old nvim"
@@ -21,3 +22,4 @@ chezadd() { chezmoi forget $1 && chezmoi add $1 }
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 eval "$(luarocks path --lua-version=5.1)"
+source ~/.zshrc_local
