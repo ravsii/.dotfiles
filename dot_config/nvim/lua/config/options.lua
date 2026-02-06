@@ -34,6 +34,7 @@ opt.jumpoptions = "view"
 opt.laststatus = 3 -- global statusline
 opt.linebreak = true -- Wrap lines at convenient points
 opt.list = true -- Show some invisible characters (tabs...
+opt.listchars = "tab:│ ,trail:-,nbsp:+"
 opt.messagesopt = "wait:2000,history:500"
 opt.mouse = "n" -- Enable mouse mode in normal mode
 opt.number = true -- Print line number
