@@ -10,9 +10,7 @@ export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/bin
 
 alias vi="nvim"
-alias ovi="NVIM_APPNAME=nvim.old nvim"
 alias lg="lazygit"
-alias fix_gpg="gpgconf --kill gpg-agent"
 alias ktx="kubectx"
 alias kns="kubens"
 alias k="kubectl"
