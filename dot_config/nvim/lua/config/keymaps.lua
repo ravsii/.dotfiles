@@ -9,6 +9,8 @@ map({ "v", "n" }, "<Down>", "<Nop>", { desc = "remove arrow-down bind" })
 map({ "v", "n" }, "<Right>", "<Nop>", { desc = "remove arrow-right bind" })
 map({ "v", "n" }, "<Left>", "<Nop>", { desc = "remove arrow-up bind" })
 
+map("n", "<F1>", "<Nop>", { desc = "remove F1 keybind" })
+
 map({ "n", "x" }, "&", "<Cmd>&&<CR>", { desc = "Repeat last :substitute with flags" })
 
 -- better up/down
