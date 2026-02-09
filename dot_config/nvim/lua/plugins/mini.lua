@@ -31,6 +31,7 @@ local function ai_whichkey(opts)
 
   ---@type wk.Spec[]
   local ret = { mode = { "o", "x" } }
+
   ---@type table<string, string>
   local mappings = vim.tbl_extend("force", {}, {
     around = "a",
@@ -40,6 +41,7 @@ local function ai_whichkey(opts)
     around_last = "al",
     inside_last = "il",
   }, opts.mappings or {})
+
   mappings.goto_left = nil
   mappings.goto_right = nil
 
@@ -54,6 +56,7 @@ local function ai_whichkey(opts)
       ret[#ret + 1] = { prefix .. obj[1], desc = obj.desc }
     end
   end
+
   require("which-key").add(ret, { notify = false })
 end
 
