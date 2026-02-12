@@ -1,0 +1,9 @@
+{
+  "exhaustruct": {
+    "prefix": "//exh",
+    "description": "exhaustruct enforce comment",
+    "body": [
+      "// exhaustruct:enforce"
+    ]
+  }
+}
