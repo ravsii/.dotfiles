@@ -1,4 +1,4 @@
-require("install"):add_lsp_enable_exclude({ "rust_analyzer" }):add_treesitter({ "rust" })
+require("install"):add_mason({ "rust_analyzer" }):add_lsp_enable_exclude({ "rust_analyzer" }):add_treesitter({ "rust" })
 
 return {
   {
