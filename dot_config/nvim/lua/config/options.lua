@@ -24,7 +24,6 @@ opt.fillchars = {
 opt.fixeol = false -- Don't add \n at the of the file. Breaks formatters.
 opt.foldlevel = 99
 opt.foldmethod = "indent"
-opt.foldtext = "v:lua.require'lazyvim.util'.ui.foldtext()"
 opt.formatoptions = "jcroqlnt"
 opt.grepformat = "%f:%l:%c:%m"
 opt.grepprg = "rg --vimgrep"
