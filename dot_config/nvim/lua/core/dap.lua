@@ -112,7 +112,7 @@ return {
         terminal = {
           size = 0.4,
           position = "right",
-          hide = { "delve" },
+          -- hide = { "delve" },
         },
       },
       auto_toggle = true,
