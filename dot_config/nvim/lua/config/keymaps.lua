@@ -10,10 +10,10 @@ map({ "v", "n" }, "<Right>", "<Nop>", { desc = "remove arrow-right bind" })
 map({ "v", "n" }, "<Left>", "<Nop>", { desc = "remove arrow-left bind" })
 
 -- Disable Shift + arrow keys
-map({ "v", "n" }, "<S-Up>", "<Nop>", { desc = "remove shift+arrow-up bind" })
-map({ "v", "n" }, "<S-Down>", "<Nop>", { desc = "remove shift+arrow-down bind" })
-map({ "v", "n" }, "<S-Right>", "<Nop>", { desc = "remove shift+arrow-right bind" })
-map({ "v", "n" }, "<S-Left>", "<Nop>", { desc = "remove shift+arrow-left bind" })
+map({ "v", "n", "i" }, "<S-Up>", "<Nop>", { desc = "remove shift+arrow-up bind" })
+map({ "v", "n", "i" }, "<S-Down>", "<Nop>", { desc = "remove shift+arrow-down bind" })
+map({ "v", "n", "i" }, "<S-Right>", "<Nop>", { desc = "remove shift+arrow-right bind" })
+map({ "v", "n", "i" }, "<S-Left>", "<Nop>", { desc = "remove shift+arrow-left bind" })
 
 map("n", "<F1>", "<Nop>", { desc = "remove F1 keybind" })
 
