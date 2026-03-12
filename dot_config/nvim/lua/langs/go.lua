@@ -7,6 +7,7 @@ require("install")
     "golangci_lint_ls",
     "gopls",
     "impl",
+    "gci",
   })
   :add_treesitter({ "go", "gomod", "gowork", "gosum" })
 
@@ -44,7 +45,20 @@ return {
     opts = function(_, opts)
       -- formattag should be the first source as it adds extra newline at the
       -- end of the file, thus breaking gofumpt linting
-      opts.formatters_by_ft.go = { "goimports", "formattag", "gofumpt" }
+      opts.formatters_by_ft.go = { "gci", "formattag", "gofumpt" }
+      opts.formatters.gci = {
+        command = "gci",
+        stdin = true,
+        args = {
+          "print",
+          "--custom-order",
+          "--section",
+          "standard",
+          "--section",
+          "default",
+        },
+      }
+
       opts.formatters.formattag = {
         command = "formattag",
         stdin = true,
