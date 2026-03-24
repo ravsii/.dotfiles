@@ -33,7 +33,7 @@ return {
     opts = {
       adapters = {
         ["neotest-golang"] = {
-          go_test_args = { "-race", "-count=1" },
+          go_test_args = { "-race" },
           dap_go_enabled = true, -- requires leoluz/nvim-dap-go
           warn_test_name_dupes = false,
         },
