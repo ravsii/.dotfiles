@@ -1,7 +1,7 @@
 require("install")
   :add_mason({
     "clangd",
-    "cmake",
+    -- "cmake",
     "clang-format",
     "codelldb",
   })
