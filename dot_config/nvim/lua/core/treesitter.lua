@@ -4,44 +4,32 @@ return {
     opts = {
       spec = {
         { "<BS>", desc = "Decrement Selection", mode = "x" },
-        { "<c-space>", desc = "Increment Selection", mode = { "x", "n" } },
+        { "<C-space>", desc = "Increment Selection", mode = { "x", "n" } },
       },
     },
   },
   {
     "nvim-treesitter/nvim-treesitter",
+    branch = "main",
     lazy = false,
-    branch = "master",
     build = ":TSUpdate",
-    keys = {
-      { "<c-space>", desc = "Increment Selection" },
-      { "<bs>", desc = "Decrement Selection", mode = "x" },
-    },
-    init = function()
-      -- Works only on master branch
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = "*",
-        callback = function(ev)
-          local parsers = require("nvim-treesitter.parsers")
-          local ft = vim.bo[ev.buf].filetype
-          local p = parsers.ft_to_lang(ft)
 
-          if parsers.has_parser(p) then
-            vim.treesitter.start(ev.buf)
-          end
-        end,
-        desc = "Start Tree-sitter if parser is available",
+    keys = {
+      { "<C-space>", desc = "Increment Selection", mode = { "n", "x" } },
+      { "<BS>", desc = "Decrement Selection", mode = "x" },
+    },
+
+    init = function()
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = { "*" },
+        callback = function() vim.treesitter.start() end,
       })
     end,
-    ---@param opts TSConfig
-    config = function(_, opts) require("nvim-treesitter.configs").setup(opts) end,
+
+    config = function(_, opts) require("nvim-treesitter").setup(opts) end,
+
     opts = {
-      ensure_installed = {
-        "lua",
-        "luadoc",
-        "vim",
-        "vimdoc",
-      },
+      ensure_installed = { "lua", "luadoc", "vim", "vimdoc" },
       auto_install = true,
       highlight = { enable = true },
       indent = { enable = true },
@@ -50,8 +38,8 @@ return {
         keymaps = {
           init_selection = "<C-space>",
           node_incremental = "<C-space>",
+          node_decremental = "<BS>",
           scope_incremental = false,
-          node_decremental = "<bs>",
         },
       },
       textobjects = {
@@ -78,24 +66,24 @@ return {
             ["[A"] = "@parameter.inner",
           },
         },
+
         swap = {
           enable = true,
-          swap_previous = { ["<M-h>"] = "@parameter.inner" },
           swap_next = { ["<M-l>"] = "@parameter.inner" },
+          swap_previous = { ["<M-h>"] = "@parameter.inner" },
         },
       },
     },
   },
-  {
-    "nvim-treesitter/nvim-treesitter-textobjects",
-    event = "VeryLazy",
-    enabled = true,
-  },
+  { "nvim-treesitter/nvim-treesitter-textobjects", branch = "main" },
   {
     "nvim-treesitter/nvim-treesitter-context",
     opts = function()
-      vim.api.nvim_set_hl(0, "TreesitterContext", { link = "@comment.hint" })
-      return { mode = "cursor", max_lines = 3 }
+      vim.api.nvim_set_hl(0, "TreesitterContext", { link = "@comment" })
+      return {
+        mode = "cursor",
+        max_lines = 3,
+      }
     end,
   },
 }
