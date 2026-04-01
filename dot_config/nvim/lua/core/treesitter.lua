@@ -21,8 +21,8 @@ return {
 
     init = function()
       vim.api.nvim_create_autocmd("FileType", {
-        pattern = { "*" },
-        callback = function() vim.treesitter.start() end,
+        pattern = "*",
+        callback = function(args) pcall(vim.treesitter.start, args.buf) end,
       })
     end,
 
