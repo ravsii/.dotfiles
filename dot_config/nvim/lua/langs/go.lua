@@ -26,10 +26,17 @@ return {
     },
   },
   {
-    -- "nvim-neotest/neotest",
-    "bvdmitri/neotest",
-    branch = "patch-1",
-    dependencies = { "fredrikaverpil/neotest-golang", version = "*" },
+    "nvim-neotest/neotest",
+    version = "*",
+    dependencies = {
+      {
+        "fredrikaverpil/neotest-golang",
+        version = "*",
+        build = function()
+          vim.system({ "go", "install", "gotest.tools/gotestsum@latest" }):wait() -- Optional, but recommended
+        end,
+      },
+    },
     config = function(_, opts)
       local neotest_golang_opts = {
         -- https://fredrikaverpil.github.io/neotest-golang/config/

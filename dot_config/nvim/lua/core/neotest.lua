@@ -1,8 +1,7 @@
 return {
   {
-    -- "nvim-neotest/neotest",
-    "bvdmitri/neotest",
-    branch = "patch-1",
+    "nvim-neotest/neotest",
+    version = "*",
     dependencies = {
       "nvim-neotest/nvim-nio",
       "nvim-lua/plenary.nvim",
