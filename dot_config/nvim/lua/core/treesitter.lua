@@ -18,7 +18,7 @@ end
 local function goto_prev(bind, group)
   return {
     bind,
-    function() require("nvim-treesitter-textobjects.move").goto_next_start(group) end,
+    function() require("nvim-treesitter-textobjects.move").goto_previous_start(group) end,
     desc = "Next " .. group,
     mode = { "n", "x", "o" },
   }
