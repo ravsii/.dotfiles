@@ -27,10 +27,7 @@ end
 --- @param servers string[]
 --- @return table self
 function M:add_lsp_enable_exclude(servers)
-  assert(
-    type(servers) == "table",
-    "add_lsp_enable_exclude expects a table of strings"
-  )
+  assert(type(servers) == "table", "add_lsp_enable_exclude expects a table of strings")
   vim.list_extend(self.lsp_enable_exclude, servers)
   return self
 end
@@ -39,15 +36,9 @@ end
 --- @param linters table<string, string[]>
 --- @return table self
 function M:add_linters_by_ft(linters)
-  assert(
-    type(linters) == "table",
-    "add_linters_by_ft expects a table mapping filetype to list of linters"
-  )
+  assert(type(linters) == "table", "add_linters_by_ft expects a table mapping filetype to list of linters")
   for ft, l in pairs(linters) do
-    assert(
-      type(l) == "table",
-      ("linters for '%s' must be a table of strings"):format(ft)
-    )
+    assert(type(l) == "table", ("linters for '%s' must be a table of strings"):format(ft))
     M.linters_by_ft[ft] = M.linters_by_ft[ft] or {}
     vim.list_extend(M.linters_by_ft[ft], l)
   end
