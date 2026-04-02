@@ -1,5 +1,4 @@
 {
-  "FixCursorHold.nvim": { "branch": "master", "commit": "1900f89dc17c603eec29960f57c00bd9ae696495" },
   "SchemaStore.nvim": { "branch": "main", "commit": "4f1c58a59d3a4da095743dd6f04b73caa0cefc3d" },
   "blink.cmp": { "branch": "main", "commit": "451168851e8e2466bc97ee3e026c3dcb9141ce07" },
   "bufferline.nvim": { "branch": "main", "commit": "655133c3b4c3e5e05ec549b9f8cc2894ac6f51b3" },

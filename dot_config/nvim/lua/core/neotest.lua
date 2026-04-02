@@ -2,11 +2,7 @@ return {
   {
     "nvim-neotest/neotest",
     version = "*",
-    dependencies = {
-      "nvim-neotest/nvim-nio",
-      "nvim-lua/plenary.nvim",
-      "antoinemadec/FixCursorHold.nvim",
-    },
+    dependencies = { "nvim-neotest/nvim-nio" },
     opts = {
       adapters = {},
       status = { virtual_text = true },
