@@ -1,7 +1,13 @@
 return {
   {
-    "nvim-neotest/neotest",
-    dependencies = { "nvim-neotest/nvim-nio" },
+    -- "nvim-neotest/neotest",
+    "bvdmitri/neotest",
+    branch = "patch-1",
+    dependencies = {
+      "nvim-neotest/nvim-nio",
+      "nvim-lua/plenary.nvim",
+      "antoinemadec/FixCursorHold.nvim",
+    },
     opts = {
       adapters = {},
       status = { virtual_text = true },

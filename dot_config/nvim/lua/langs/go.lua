@@ -20,25 +20,30 @@ vim.lsp.config.gopls = {
 return {
   {
     "mfussenegger/nvim-dap",
-    optional = true,
     dependencies = {
       { "mason-org/mason.nvim", opts = { ensure_installed = { "delve" } } },
       { "leoluz/nvim-dap-go", opts = {} },
     },
   },
   {
-    "nvim-neotest/neotest",
-    optional = true,
-    dependencies = { "fredrikaverpil/neotest-golang", tag = "v1.15.1" },
-    opts = {
-      adapters = {
-        ["neotest-golang"] = {
-          go_test_args = { "-race" },
-          dap_go_enabled = true, -- requires leoluz/nvim-dap-go
-          warn_test_name_dupes = false,
-        },
-      },
-    },
+    -- "nvim-neotest/neotest",
+    "bvdmitri/neotest",
+    branch = "patch-1",
+    dependencies = { "fredrikaverpil/neotest-golang", version = "*" },
+    config = function(_, opts)
+      local neotest_golang_opts = {
+        -- https://fredrikaverpil.github.io/neotest-golang/config/
+        runner = "gotestsum",
+        go_test_args = { "-race" },
+        dap_go_enabled = true, -- requires leoluz/nvim-dap-go
+        warn_test_name_dupes = false,
+        testify_enabled = false,
+        colorize_test_output = true,
+      }
+
+      opts.adapters = { require("neotest-golang")(neotest_golang_opts) }
+      require("neotest").setup(opts)
+    end,
   },
   {
     "stevearc/conform.nvim",
