@@ -63,7 +63,6 @@ end
 return {
   {
     "echasnovski/mini.pairs",
-    event = "VeryLazy",
     opts = {
       modes = { insert = true, command = true, terminal = false },
       -- skip autopair when next character is one of these
@@ -78,8 +77,7 @@ return {
     },
   },
   {
-    "echasnovski/mini.ai",
-    event = "VeryLazy",
+    "nvim-mini/mini.ai",
     opts = function()
       local ai = require("mini.ai")
       return {

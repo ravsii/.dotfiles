@@ -31,8 +31,6 @@ return {
     lazy = false,
     build = ":TSUpdate",
     keys = {
-      { "<C-space>", desc = "Increment Selection", mode = { "n", "x" } },
-      { "<BS>", desc = "Decrement Selection", mode = "x" },
       {
         "[n",
         function() require("vim.treesitter._select").select_prev(vim.v.count1) end,
@@ -86,6 +84,7 @@ return {
   {
     "nvim-treesitter/nvim-treesitter-textobjects",
     branch = "main",
+    lazy = false,
     keys = {
       -- Swap
       {
