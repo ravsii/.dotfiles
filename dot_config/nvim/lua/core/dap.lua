@@ -101,18 +101,17 @@ return {
     opts = {
       winbar = {
         show = true,
-        sections = { "repl", "scopes", "breakpoints", "exceptions", "threads", "watches" },
+        sections = { "repl", "scopes", "breakpoints", "exceptions", "threads", "watches", "console" },
         show_keymap_hints = true,
         default_section = "repl",
         controls = { enabled = true, position = "left" },
       },
       windows = {
-        size = 0.4,
+        size = 0.3,
         position = "below",
         terminal = {
-          size = 0.4,
+          size = 0.5,
           position = "right",
-          -- hide = { "delve" },
         },
       },
       auto_toggle = true,

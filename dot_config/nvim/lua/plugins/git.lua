@@ -1,6 +1,7 @@
 return {
   {
-    "akinsho/git-conflict.nvim",
+    "konradmalik/git-conflict.nvim",
+    -- enabled = false,
     version = "*",
     event = { "BufWinEnter", "BufNewFile" },
     keys = {

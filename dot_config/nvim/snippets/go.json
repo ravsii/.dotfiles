@@ -1,6 +1,13 @@
 {
-  "exhaustruct": {
+  "exhaustive": {
     "prefix": "//exh",
+    "description": "exhaustive enforce comment",
+    "body": [
+      "//exhaustive:enforce"
+    ]
+  },
+  "exhaustruct": {
+    "prefix": "//exs",
     "description": "exhaustruct enforce comment",
     "body": [
       "//exhaustruct:enforce"
