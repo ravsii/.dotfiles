@@ -21,3 +21,6 @@ eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 eval "$(luarocks path --lua-version=5.1)"
 source ~/.zshrc_local
+export OPENCODE_DISABLE_DEFAULT_PLUGINS=true
+export OPENCODE_DISABLE_MODELS_FETCH=1
+export PATH="/opt/homebrew/bin:$PATH"
