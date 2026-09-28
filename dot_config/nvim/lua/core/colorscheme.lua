@@ -31,19 +31,4 @@ return {
     },
     init = function() vim.cmd([[colorscheme rose-pine]]) end,
   },
-  {
-    "Mofiqul/vscode.nvim",
-    opts = {
-      transparent = true,
-      italic_comments = true,
-      italic_inlayhints = true,
-      underline_links = true,
-      disable_nvimtree_bg = true,
-      terminal_colors = true,
-    },
-  },
-  { "catppuccin/nvim", name = "catppuccin" },
-  { "rebelot/kanagawa.nvim" },
-  { "scottmckendry/cyberdream.nvim" },
-  { "thesimonho/kanagawa-paper.nvim" },
 }

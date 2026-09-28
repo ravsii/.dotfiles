@@ -1,0 +1,9 @@
+{
+  "plugins": {
+    "tree-sitter-d2": {
+      "rev": "d552b17bf3e4c29b3f090a4a02f61ed2c4a67b3b",
+      "src": "https://github.com/ravsii/tree-sitter-d2",
+      "version": ">=0.0.0"
+    }
+  }
+}
