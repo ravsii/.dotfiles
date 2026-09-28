@@ -49,7 +49,6 @@ return {
         lualine_x = { { "filetype" }, { "encoding" } },
         lualine_y = { { "location" } },
         lualine_z = {
-          { function() return require("timers.integrations.lualine").closest_timer() end },
           { "progress" },
           { get_scrollbar },
         },
