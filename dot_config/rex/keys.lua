@@ -1,6 +1,7 @@
 rex.bind("cmd+=", "pane.balance")
 rex.bind("cmd+r", "client.config.reload")
 rex.bind("cmd+b", "client.sidebar.toggle")
+rex.bind("cmd+p", "client.palette.toggle")
 
 rex.bind("cmd+ctrl+alt+left", "pane.move", { direction = "left" })
 rex.bind("cmd+ctrl+alt+right", "pane.move", { direction = "right" })
