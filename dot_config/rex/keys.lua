@@ -10,6 +10,7 @@ rex.bind("cmd+ctrl+alt+down", "pane.move", { direction = "down" })
 
 -- Binds for custom actions
 rex.bind("cmd+g", "float_lazygit")
+rex.bind("cmd+/", "float_scratch")
 rex.bind("cmd+alt+\\", "expand_float")
 rex.bind("cmd+o", "open_in_finder")
 rex.bind("cmd+;", "session_agent")

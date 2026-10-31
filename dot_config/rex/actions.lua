@@ -28,17 +28,14 @@ action_float("scratch", "Scratch Terminal", "Scratch terminal float")
 ---@param name string Action identifier suffix used by key bindings.
 ---@param title string Action title shown in the command palette.
 ---@param description string Action description shown in the command palette.
+---@param cwd string Working directory.
 ---@param command? string[] Program and its arguments.
-local function action_session(name, title, description, command)
+local function action_session(name, title, description, cwd, command)
   rex.action({
     name = "session_" .. name,
     title = title,
     description = description,
-    run = function(ctx)
-      local cwd = utils.cwd(ctx)
-      if not cwd then
-        error("can't get current directory", 0)
-      end
+    run = function()
       local session = utils.create_session(cwd, command)
       rex.client.queue("session.select", { session_id = session.session_id })
       return session
@@ -46,7 +43,13 @@ local function action_session(name, title, description, command)
   })
 end
 
-action_session("agent", "New Opencode session", "Open Opencode in a new session", { "/bin/zsh", "-lic", "agent" })
+action_session(
+  "agent",
+  "New Opencode session",
+  "Open Opencode in a new session",
+  os.getenv("HOME") or "~",
+  { "/bin/zsh", "-lic", "agent" }
+)
 
 rex.action({
   name = "open_in_finder",
