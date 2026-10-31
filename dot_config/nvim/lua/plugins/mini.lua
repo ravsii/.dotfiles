@@ -46,88 +46,81 @@ local function ai_whichkey(opts)
   mappings.goto_right = nil
 
   for name, prefix in pairs(mappings) do
-    name = name:gsub("^around_", ""):gsub("^inside_", "")
-    ret[#ret + 1] = { prefix, group = name }
+    local group = name:gsub("^around_", ""):gsub("^inside_", "")
+    ret[#ret + 1] = { prefix, group = group }
     for _, obj in ipairs(objects) do
       local desc = obj.desc
       if prefix:sub(1, 1) == "i" then
         desc = desc:gsub(" with ws", "")
       end
-      ret[#ret + 1] = { prefix .. obj[1], desc = obj.desc }
+      ret[#ret + 1] = { prefix .. obj[1], desc = desc }
     end
   end
 
   require("which-key").add(ret, { notify = false })
 end
 
-return {
-  {
-    "echasnovski/mini.pairs",
-    opts = {
-      modes = { insert = true, command = true, terminal = false },
-      -- skip autopair when next character is one of these
-      skip_next = [=[[%w%%%'%[%"%.%`%$]]=],
-      -- skip autopair when the cursor is inside these treesitter nodes
-      skip_ts = { "string" },
-      -- skip autopair when next character is closing pair
-      -- and there are more closing pairs than opening pairs
-      skip_unbalanced = true,
-      -- better deal with markdown code blocks
-      markdown = true,
-    },
-  },
-  {
-    "nvim-mini/mini.ai",
-    opts = function()
-      local ai = require("mini.ai")
-      return {
-        n_lines = 500,
-        custom_textobjects = {
-          o = ai.gen_spec.treesitter({ -- code block
-            a = { "@block.outer", "@conditional.outer", "@loop.outer" },
-            i = { "@block.inner", "@conditional.inner", "@loop.inner" },
-          }),
-          f = ai.gen_spec.treesitter({ a = "@function.outer", i = "@function.inner" }), -- function
-          c = ai.gen_spec.treesitter({ a = "@class.outer", i = "@class.inner" }), -- class
-          t = { "<([%p%w]-)%f[^<%w][^<>]->.-</%1>", "^<.->().*()</[^/]->$" }, -- tags
-          d = { "%f[%d]%d+" }, -- digits
-          e = { -- Word with case
-            { "%u[%l%d]+%f[^%l%d]", "%f[%S][%l%d]+%f[^%l%d]", "%f[%P][%l%d]+%f[^%l%d]", "^[%l%d]+%f[^%l%d]" },
-            "^().*()$",
-          },
-          u = ai.gen_spec.function_call(), -- u for "Usage"
-          U = ai.gen_spec.function_call({ name_pattern = "[%w_]" }), -- without dot in function name
-        },
-      }
-    end,
-    config = function(_, opts)
-      require("mini.ai").setup(opts)
-      vim.schedule(function() ai_whichkey(opts) end)
-    end,
-  },
-  { "echasnovski/mini.align", version = "*", opts = {} },
-  {
-    "echasnovski/mini.surround",
-    keys = {
+vim.pack.add({
+  "https://github.com/nvim-mini/mini.pairs",
+  "https://github.com/nvim-mini/mini.ai",
+  "https://github.com/nvim-mini/mini.align",
+  "https://github.com/nvim-mini/mini.surround",
+})
 
-      { "gsa", desc = "Add Surrounding", mode = { "n", "v" } },
-      { "gsd", desc = "Delete Surrounding", mode = { "n", "v" } },
-      { "gsf", desc = "Find Right Surrounding", mode = { "n", "v" } },
-      { "gsF", desc = "Find Left Surrounding", mode = { "n", "v" } },
-      { "gsh", desc = "Highlight Surrounding", mode = { "n", "v" } },
-      { "gsr", desc = "Replace Surrounding", mode = { "n", "v" } },
-      { "gsn", desc = "Update n_lines", mode = { "n", "v" } },
+require("mini.pairs").setup({
+  modes = { insert = true, command = true, terminal = false },
+})
+
+local ai = require("mini.ai")
+local ai_opts = {
+  n_lines = 500,
+  custom_textobjects = {
+    o = ai.gen_spec.treesitter({
+      a = { "@block.outer", "@conditional.outer", "@loop.outer" },
+      i = { "@block.inner", "@conditional.inner", "@loop.inner" },
+    }),
+    f = ai.gen_spec.treesitter({ a = "@function.outer", i = "@function.inner" }),
+    c = ai.gen_spec.treesitter({ a = "@class.outer", i = "@class.inner" }),
+    t = { "<([%p%w]-)%f[^<%w][^<>]->.-</%1>", "^<.->().*()</[^/]->$" },
+    d = { "%f[%d]%d+" },
+    e = {
+      { "%u[%l%d]+%f[^%l%d]", "%f[%S][%l%d]+%f[^%l%d]", "%f[%P][%l%d]+%f[^%l%d]", "^[%l%d]+%f[^%l%d]" },
+      "^().*()$",
     },
-    opts = {
-      mappings = {
-        add = "gsa", -- Add surrounding in Normal and Visual modes
-        delete = "gsd", -- Delete surrounding
-        find = "gsf", -- Find surrounding (to the right)
-        find_left = "gsF", -- Find surrounding (to the left)
-        highlight = "gsh", -- Highlight surrounding
-        replace = "gsr", -- Replace surrounding
-        update_n_lines = "gsn", -- Update `n_lines`
-      },
-    },
+    u = ai.gen_spec.function_call(),
+    U = ai.gen_spec.function_call({ name_pattern = "[%w_]" }),
   },
 }
+ai.setup(ai_opts)
+vim.schedule(function()
+  ai_whichkey(ai_opts)
+  require("which-key").add({
+    { "gsa", desc = "Add Surrounding", mode = { "n", "x" } },
+    { "gsd", desc = "Delete Surrounding", mode = { "n", "x" } },
+    { "gsf", desc = "Find Right Surrounding", mode = { "n", "x" } },
+    { "gsF", desc = "Find Left Surrounding", mode = { "n", "x" } },
+    { "gsh", desc = "Highlight Surrounding", mode = { "n", "x" } },
+    { "gsr", desc = "Replace Surrounding", mode = { "n", "x" } },
+    { "gsn", desc = "Update n_lines", mode = { "n", "x" } },
+  })
+end)
+
+require("mini.align").setup({})
+
+require("mini.surround").setup({
+  mappings = {
+    add = "gsa",
+    delete = "gsd",
+    find = "gsf",
+    find_left = "gsF",
+    highlight = "gsh",
+    replace = "gsr",
+  },
+})
+
+vim.keymap.set(
+  { "n", "x" },
+  "gsn",
+  function() require("mini.surround").update_n_lines() end,
+  { desc = "Update n_lines" }
+)

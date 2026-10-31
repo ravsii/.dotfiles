@@ -3,6 +3,7 @@ README.*
 
 # nvim
 **/spell/
+.config/nvim/nvim-pack-lock.json
 
 # k9s data
 k9s/clusters/**

@@ -1,8 +1,6 @@
-return {
-  {
-    "chentoast/marks.nvim",
-    event = "VeryLazy",
-    opts = {},
-    init = function() vim.api.nvim_set_hl(0, "MarkSignHL", { link = "@character" }) end,
-  },
-}
+vim.pack.add({
+  "https://github.com/chentoast/marks.nvim",
+})
+
+vim.api.nvim_set_hl(0, "MarkSignHL", { link = "@character" })
+require("marks").setup({})
