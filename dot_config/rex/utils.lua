@@ -1,3 +1,4 @@
+local constants = require("constants")
 local terminal = "com.superlogical.terminal"
 
 local M = {}
@@ -19,7 +20,7 @@ function M.create_float(window_id, cwd, command)
     focus = true,
     layout = rex.layout.block({
       flavor = terminal .. ".shell",
-      options = { cwd = cwd, command = command },
+      options = { cwd = cwd, command = command, shell = constants.shell },
     }),
   })
   if err ~= nil then
@@ -37,7 +38,7 @@ function M.create_session(cwd, command)
       {
         layout = rex.layout.block({
           flavor = terminal .. ".shell",
-          options = { cwd = cwd, command = command },
+          options = { cwd = cwd, command = command, shell = constants.shell },
         }),
       },
     },

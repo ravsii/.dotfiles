@@ -1,4 +1,5 @@
 local utils = require("utils")
+local constants = require("constants")
 
 ---Register an action that opens a command in a floating terminal.
 ---@param name string Action identifier used by key bindings.
@@ -48,7 +49,7 @@ action_session(
   "New Opencode session",
   "Open Opencode in a new session",
   os.getenv("HOME") or "~",
-  { "/bin/zsh", "-lic", "agent" }
+  { constants.shell, "-lic", "agent" }
 )
 
 rex.action({

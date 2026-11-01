@@ -1,0 +1,3 @@
+return {
+  shell = "/bin/zsh",
+}
