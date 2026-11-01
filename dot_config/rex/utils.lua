@@ -13,6 +13,18 @@ function M.cwd(ctx)
   return proc and proc.foreground and proc.foreground.cwd
 end
 
+---@param command? string[] Program and its arguments.
+---@return string[] shell_command Shell and its arguments.
+local function shell_command(command)
+  local full_command = { constants.shell, command and "-lic" or "-li" }
+  if command then
+    for _, arg in ipairs(command) do
+      table.insert(full_command, arg)
+    end
+  end
+  return full_command
+end
+
 function M.create_float(window_id, cwd, command)
   local layer, err = rex.session.new_layer({
     window_id = window_id,
@@ -20,7 +32,7 @@ function M.create_float(window_id, cwd, command)
     focus = true,
     layout = rex.layout.block({
       flavor = terminal .. ".shell",
-      options = { cwd = cwd, command = command, shell = constants.shell },
+      options = { cwd = cwd, command = shell_command(command), shell = constants.shell },
     }),
   })
   if err ~= nil then
@@ -38,7 +50,7 @@ function M.create_session(cwd, command)
       {
         layout = rex.layout.block({
           flavor = terminal .. ".shell",
-          options = { cwd = cwd, command = command, shell = constants.shell },
+          options = { cwd = cwd, command = shell_command(command), shell = constants.shell },
         }),
       },
     },
