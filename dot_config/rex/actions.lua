@@ -43,13 +43,7 @@ local function action_session(name, title, description, cwd, command)
   })
 end
 
-action_session(
-  "agent",
-  "New Opencode session",
-  "Open Opencode in a new session",
-  os.getenv("HOME") or "~",
-  { "agent" }
-)
+action_session("agent", "New Opencode session", "Open Opencode in a new session", os.getenv("HOME") or "~", { "agent" })
 
 rex.action({
   name = "open_in_finder",
@@ -59,6 +53,62 @@ rex.action({
     local dir = utils.cwd(ctx)
     if dir then
       rex.exec({ "open", dir })
+    end
+  end,
+})
+
+-- Fractions of the window size: outer margin and offset between floats.
+local cascade_margin = 0.05
+local cascade_step = 0.04
+
+rex.action({
+  name = "cascade_floats",
+  title = "Cascade floats",
+  description = "Arrange floats in a cascade",
+  run = function(ctx)
+    local block, block_err = rex.session.describe_block({ block_id = ctx.block_id })
+    if block_err then
+      error(block_err, 0)
+    end
+    if not block then
+      return
+    end
+
+    local view, view_err = rex.session.view()
+    if view_err then
+      error(view_err, 0)
+    end
+    if not view then
+      return
+    end
+
+    for _, window in ipairs(view.windows) do
+      if window.window_id == block.block.window_id then
+        local layers = {}
+        for _, layer in ipairs(window.layers) do
+          if layer.kind == "floating" then
+            table.insert(layers, layer)
+          end
+        end
+
+        if #layers > 0 then
+          local area = 1 - 2 * cascade_margin
+          -- Reserve at least half of the cascade area for each float.
+          local step = #layers > 1 and math.min(cascade_step, area / (2 * (#layers - 1))) or 0
+          local size = area - (#layers - 1) * step
+          for i, layer in ipairs(layers) do
+            local offset = cascade_margin + (i - 1) * step
+            local _, err = rex.session.resize_layer({
+              layer_id = layer.layer_id,
+              bounds = { offset, offset, size, size },
+            })
+            if err then
+              error(err, 0)
+            end
+          end
+        end
+        return
+      end
     end
   end,
 })
