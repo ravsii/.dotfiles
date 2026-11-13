@@ -1,32 +1,35 @@
-# Tokyo Night
-# https://github.com/folke/tokyonight.nvim/blob/main/extras/lazygit/tokyonight_storm.yml
+# Rosé Pine
+# https://github.com/rose-pine/lazygit/blob/main/themes/rose-pine.yml
 gui:
   nerdFontsVersion: "3"
   theme:
     activeBorderColor:
-      - "#ff9e64"
+      - "#31748f"
       - "bold"
     inactiveBorderColor:
-      - "#29a4bd"
+      - "#6e6a86"
     searchingActiveBorderColor:
-      - "#ff9e64"
+      - "#ebbcba"
       - "bold"
     optionsTextColor:
-      - "#7aa2f7"
+      - "#9ccfd8"
     selectedLineBgColor:
-      - "#2e3c64"
+      - "#31748f"
+    inactiveViewSelectedLineBgColor:
+      - "#26233a"
+      - "bold"
     cherryPickedCommitFgColor:
-      - "#7aa2f7"
+      - "#1f1d2e"
     cherryPickedCommitBgColor:
-      - "#bb9af7"
+      - "#ebbcba"
     markedBaseCommitFgColor:
-      - "#7aa2f7"
+      - "#9ccfd8"
     markedBaseCommitBgColor:
-      - "#e0af68"
+      - "#f6c177"
     unstagedChangesColor:
-      - "#db4b4b"
+      - "#eb6f92"
     defaultFgColor:
-      - "#c0caf5"
+      - "#e0def4"
 
   # Filter mode: When searching/filtering, use fuzzy matching
   filterMode: fuzzy
@@ -46,3 +49,10 @@ gui:
 
 # Don't prompt to return from subprocess when closing child processes (commitizen, etc)
 promptToReturnFromSubprocess: false
+
+git:
+  diffRenderers:
+    - name: delta
+      type: stdinFilter
+      colorArg: always
+      command: delta --dark --paging=never --line-numbers --hyperlinks
