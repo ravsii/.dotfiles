@@ -3,6 +3,7 @@ vim.pack.add({
   "https://github.com/nvim-neotest/nvim-nio",
   "https://github.com/nvim-neotest/neotest",
   "https://github.com/fredrikaverpil/neotest-golang",
+  "https://github.com/lawrence-laz/neotest-zig",
   "https://github.com/andythigpen/nvim-coverage",
 })
 
@@ -16,6 +17,7 @@ require("neotest").setup({
       testify_enabled = true,
       colorize_test_output = true,
     }),
+    require("neotest-zig")({}),
   },
   status = { virtual_text = true },
   output = { open_on_run = false },
