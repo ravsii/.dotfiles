@@ -1,4 +1,4 @@
-rex.bind("cmd+=", "pane.balance")
+rex.bind("ctrl+=", "pane.balance")
 rex.bind("cmd+r", "client.config.reload")
 rex.bind("cmd+b", "client.sidebar.toggle")
 rex.bind("cmd+p", "client.palette.toggle")
