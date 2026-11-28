@@ -38,7 +38,7 @@ require("fyler").setup({
 
 vim.keymap.set(
   "n",
-  "<leader>E",
+  "<leader>r",
   function() require("fyler").toggle({ kind = "split_left_most" }) end,
   { desc = "Toggle file explorer" }
 )
